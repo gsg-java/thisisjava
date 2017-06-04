@@ -1,0 +1,11 @@
+package gs1.kingbbode.enums;
+
+/**
+ * Created by YG-MAC on 2017. 6. 4..
+ */
+public enum Position {
+    SW,
+    DR,
+    GZ,
+    BZ
+}
