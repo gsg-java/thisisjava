@@ -3,24 +3,20 @@
  */
 public class Ano1 {
 
-    @Ano(name = "사원추가")
+    @Ano(name = "사원추가 : 1번 엔터")
     public void add(){
-        System.out.println("사원을 추가합니다");
     }
 
-    @Ano(name = "수정")
+    @Ano(name = "정보수정 : 2번 엔터")
     public void mod(){
-        System.out.println("사원을 수정합니다");
     }
 
-    @Ano(name = "사원삭제")
+    @Ano(name = "사원삭제 : 3번 엔터")
     public void del(){
-        System.out.println("사원을 삭제합니다");
     }
 
-    @Ano(name = "사원조회")
+    @Ano(name = "사원조회 : 4번 엔터")
     public void search(){
-        System.out.println("사원을 조회합니다");
     }
 
 
