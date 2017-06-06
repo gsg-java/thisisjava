@@ -1,4 +1,4 @@
-package gs1.kingbbode.model;
+package gs1.kingbbode.domain;
 
 import gs1.kingbbode.enums.Position;
 

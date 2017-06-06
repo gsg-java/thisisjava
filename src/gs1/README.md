@@ -16,6 +16,7 @@
 
 - static, final 키워드 사용하기
 - 콘솔 메뉴를 annotation을 사용하여 출력(다른데 써도 됨)
+- 사원 이름에 중복이 없다는 가정.
 
 #### mission
 

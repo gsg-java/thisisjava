@@ -10,7 +10,7 @@ import java.lang.annotation.Target;
  */
 @Target(ElementType.METHOD)
 @Retention(RetentionPolicy.RUNTIME)
-public @interface Menu {
+public @interface Command {
     int number();
     String name();
 }
