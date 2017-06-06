@@ -4,15 +4,22 @@ package Member;
  * Created by Nekisse_lee on 2017. 6. 5..
  */
 public class Member {
-    final int num;
+
     String name;
 
 
-    public Member(int num , String name){
-        this.num = num;
+    public Member(String name) {
         this.name = name;
 
-
-
     }
+    public String toString(){
+        return String.format("이름 : ", name);
+    }
+
+
 }
+
+
+
+
+

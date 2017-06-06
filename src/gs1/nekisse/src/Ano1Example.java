@@ -40,14 +40,14 @@ public class Ano1Example {
                     break;
                 case 3 :
                     ano1.del();
-                   for (int i = 0; i <= people.length; i ++)
-                      if(people[i].equals(scanner.nextLine())){
-                       people[i] = null;
+                    for (int i = 0; i <= people.length; i ++)
+                        if(people[i].equals(scanner.nextLine())){
+                            people[i] = null;
 
 
 
 
-                    }
+                        }
                     break;
                 case 4 :
                     ano1.search();
@@ -58,8 +58,11 @@ public class Ano1Example {
 
         }
 
+
     }
-}
+
+    }
+
 
 
 
