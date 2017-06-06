@@ -12,9 +12,7 @@ public class Member {
         this.name = name;
 
     }
-    public String toString(){
-        return String.format("이름 : ", name);
-    }
+
 
 
 }

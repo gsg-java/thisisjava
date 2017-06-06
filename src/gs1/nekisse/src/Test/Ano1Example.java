@@ -1,3 +1,5 @@
+package Test;
+
 import java.lang.reflect.Method;
 import java.util.Scanner;
 
