@@ -52,13 +52,25 @@ public class MemberExample {
     }
 
     public void modmember() {
+        String name = "";
+        String after= "";
+        System.out.println("삭제할 사원의 이름을 적어주세요");
+        scanner.nextLine();
+        name = scanner.nextLine();
+        System.out.println(name + "을 삭제하였습니다.");
+        people.remove(name);
+        System.out.println("변경될 사원의 이름을 적어주세요");
+        after = scanner.nextLine();
+        people.add(after);
+        System.out.println(after + "를 추가했습니다");
+
     }
 
 
     public void searchmember() {
+        System.out.println("모든 사원을 조회합니다");
         for (int i = 0; i < people.size(); i++) {
             String Allpeople = people.get(i);
-            System.out.println("모든 사원을 조회합니다");
             System.out.println(i+ "번째 사원 : " + Allpeople);
         }
     }
