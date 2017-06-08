@@ -8,4 +8,9 @@ import gs1.kingbbode.enums.Position;
 public class Member {
     private String name;
     private Position position;
+
+    public Member(String name, Position position) {
+        this.name = name;
+        this.position = position;
+    }
 }

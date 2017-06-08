@@ -9,6 +9,8 @@ import java.util.Scanner;
  */
 public class Service {
 
+    private Database database = new Database();
+
     @Command(number = 1, name = "등록")
     public void insert(){
         //Scanner scanner = new Scanner(System.in);
