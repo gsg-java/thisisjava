@@ -1,7 +1,7 @@
-package gs1.kingbbode.domain;
+package gs1.kingbbode;
 
-import gs1.kingbbode.Service;
 import gs1.kingbbode.annotations.Command;
+import gs1.kingbbode.domain.Menu;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -63,7 +63,7 @@ public class CommandCenter {
         this.commands.get(num).execute(this.service);
     }
 
-    class Commander {
+    public class Commander {
         private Command command;
         private Method method;
 
