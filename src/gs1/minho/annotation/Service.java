@@ -7,12 +7,11 @@ import java.lang.annotation.Target;
 
 /**
  * IDE : IntelliJ IDEA
- * Created by minho on 2017. 6. 7..
+ * Created by minho on 2017. 6. 8..
  */
 
 @Target(ElementType.METHOD)
 @Retention(RetentionPolicy.RUNTIME)
-public @interface MenuAnnotation {
+public @interface Service {
+    String method();
 }
-
-

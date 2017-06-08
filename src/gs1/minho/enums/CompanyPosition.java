@@ -5,5 +5,5 @@ package gs1.minho.enums;
  * Created by minho on 2017. 6. 8..
  */
 public enum CompanyPosition {
-    CLERK, SENIOR, ASSIST, MANAGER;
+    CLERK, SENIOR, ASSIST, MANAGER
 }

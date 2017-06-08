@@ -12,8 +12,7 @@ import java.lang.annotation.Target;
 
 @Target(ElementType.METHOD)
 @Retention(RetentionPolicy.RUNTIME)
-public @interface RegisterAnnotation {
-   String name() default  "";
-   String serviceMethod() default "";
-   int value() default 0;
+public @interface ResponseView {
+    String request();
+    int value();
 }

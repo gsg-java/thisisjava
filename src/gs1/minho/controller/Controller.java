@@ -1,6 +1,9 @@
 package gs1.minho.controller;
 
-import gs1.minho.annotation.RegisterAnnotation;
+import gs1.minho.annotation.RequestView;
+import gs1.minho.annotation.ResponseView;
+import gs1.minho.annotation.Service;
+import gs1.minho.exception.AlreadyExistingEmployeeException;
 import gs1.minho.model.Emplyee;
 import gs1.minho.request.Request;
 import gs1.minho.service.EmployeeService;
@@ -19,32 +22,41 @@ public class Controller {
     private EmployeeView view;
     private EmployeeService service;
     private Map<String, Method> serviceMethodTable;
-    private Method[] viewMethodTable;
+    private Method[] requestViewMethodTable;
+    private Map<String, Method> resposseViewMethodTable;
 
     public Controller() {
         view = new EmployeeView();
         service = new EmployeeService();
         serviceMethodTable = new HashMap<>();
-        viewMethodTable = new Method[EmployeeView.class.getDeclaredMethods().length];
+        requestViewMethodTable = new Method[EmployeeView.class.getDeclaredMethods().length];
+        resposseViewMethodTable = new HashMap<>();
+
         for(Method method : EmployeeView.class.getDeclaredMethods()) {
-            if(method.isAnnotationPresent(RegisterAnnotation.class)) {
-                viewMethodTable[method.getAnnotation(RegisterAnnotation.class).value()] = method;
+            if(method.isAnnotationPresent(RequestView.class)) {
+                requestViewMethodTable[method.getAnnotation(RequestView.class).value()] = method;
+            }
+        }
+
+        for(Method method : EmployeeView.class.getDeclaredMethods()) {
+            if(method.isAnnotationPresent(ResponseView.class)) {
+                resposseViewMethodTable.put(method.getAnnotation(ResponseView.class).request(), method);
             }
         }
 
         for(Method method : EmployeeService.class.getDeclaredMethods()) {
-            if(method.isAnnotationPresent(RegisterAnnotation.class)) {
-                serviceMethodTable.put(method.getAnnotation(RegisterAnnotation.class).serviceMethod(), method);
+            if(method.isAnnotationPresent(Service.class)) {
+                serviceMethodTable.put(method.getAnnotation(Service.class).method(), method);
             }
         }
     }
 
     public void start() {
         while(true) {
-            int selected = view.ShowMenu();
+            int selected = view.showMenu();
             try {
-                Object request = viewMethodTable[selected].invoke(view);
-                //System.out.print(((Request)request).getRequestName());
+                Object request = requestViewMethodTable[selected].invoke(view);
+//                System.out.print(((Request)request).getRequestName());
                 processRequest((Request) request);
             } catch (Exception e) {
 
@@ -54,12 +66,14 @@ public class Controller {
 
     private void processRequest(Request request) {
         try {
-            Object object = serviceMethodTable.get(request.getRequestName()).invoke(service, request);
+            String requestName = request.getRequestName();
+//            System.out.print(requestName);
+            Object object = serviceMethodTable.get(requestName).invoke(service, request);
             if(object != null) {
-                view.completeMessage((Emplyee)object);
+                resposseViewMethodTable.get(requestName).invoke(view, object);
             }
+        } catch (AlreadyExistingEmployeeException e) {
         } catch (Exception e) {
-
         }
     }
 }
