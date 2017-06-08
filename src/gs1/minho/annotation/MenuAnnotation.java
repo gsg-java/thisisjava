@@ -7,13 +7,12 @@ import java.lang.annotation.Target;
 
 /**
  * IDE : IntelliJ IDEA
- * Created by minho on 2017. 6. 8..
+ * Created by minho on 2017. 6. 7..
  */
 
 @Target(ElementType.METHOD)
 @Retention(RetentionPolicy.RUNTIME)
-public @interface RegisterAnnotation {
-   String name() default  "";
-   String serviceMethod() default "";
-   int value() default 0;
+public @interface MenuAnnotation {
 }
+
+

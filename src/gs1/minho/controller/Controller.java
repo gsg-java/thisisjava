@@ -40,13 +40,15 @@ public class Controller {
     }
 
     public void start() {
-        int selected = view.ShowMenu();
-        try {
-            Object request = viewMethodTable[selected].invoke(view);
-            //System.out.print(((Request)request).getRequestName());
-            processRequest((Request) request);
-        } catch (Exception e) {
+        while(true) {
+            int selected = view.ShowMenu();
+            try {
+                Object request = viewMethodTable[selected].invoke(view);
+                //System.out.print(((Request)request).getRequestName());
+                processRequest((Request) request);
+            } catch (Exception e) {
 
+            }
         }
     }
 

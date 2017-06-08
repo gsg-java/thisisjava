@@ -1,4 +1,4 @@
-package gs1.minho.model;
+package gs1.minho.request;
 
 import gs1.minho.enums.CompanyPosition;
 
@@ -6,31 +6,12 @@ import gs1.minho.enums.CompanyPosition;
  * IDE : IntelliJ IDEA
  * Created by minho on 2017. 6. 8..
  */
-
-
-public class Emplyee {
-    private int id;
+public class RegisterRequest implements Request{
     private String name;
     private CompanyPosition position;
 
-    public Emplyee() {
-    }
-
-    public Emplyee(String name, CompanyPosition position) {
-        this.name = name;
-        this.position = position;
-    }
-
     public String getName() {
         return name;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public void setName(String name) {
@@ -41,12 +22,16 @@ public class Emplyee {
         return position;
     }
 
+    public RegisterRequest(String name, CompanyPosition position) {
+        this.name = name;
+        this.position = position;
+    }
     public void setPosition(CompanyPosition position) {
         this.position = position;
     }
 
-    public void changePosition(CompanyPosition currnetPosition, CompanyPosition newPosition) {
-
+    @Override
+    public String getRequestName() {
+        return "Register";
     }
 }
-
