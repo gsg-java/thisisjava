@@ -22,6 +22,7 @@ public class Member {
             Integer.parseInt(str);
             return true;
         }catch (NumberFormatException e){
+            System.out.println("숫자만 입력가능합니다");
             return false;
         }
   }
