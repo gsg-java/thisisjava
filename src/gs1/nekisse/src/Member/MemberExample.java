@@ -23,7 +23,7 @@ public class MemberExample {
 
 
             String menuNum = scanner.nextLine();
-                if(isNum(menuNum)){
+            if(isNum(menuNum)){
                     switch (menuNum) {
                         case "1":
                             addmember();
@@ -38,8 +38,6 @@ public class MemberExample {
                             searchmember();
                             break;
                     }
-                }else{
-                    System.out.println("숫자만 입력가능합니다");
                 }
         }
     }
@@ -49,7 +47,6 @@ public class MemberExample {
 
     public void addmember() {
         String name="";
-        scanner.nextLine();
         System.out.println("직원 이름 : ex)홍길동  ");
         name = scanner.nextLine();
         people.add(name);
@@ -61,7 +58,6 @@ public class MemberExample {
         String name = "";
         String after= "";
         System.out.println("삭제할 사원의 이름을 적어주세요");
-        scanner.nextLine();
         name = scanner.nextLine();
         System.out.println(name + "을 삭제하였습니다.");
         people.remove(name);
@@ -76,15 +72,14 @@ public class MemberExample {
     public void searchmember() {
         System.out.println("모든 사원을 조회합니다");
         for (int i = 0; i < people.size(); i++) {
-            String Allpeople = people.get(i);
-            System.out.println(i+ "번째 사원 : " + Allpeople);
+            String AllPeople = people.get(i);
+            System.out.println(i+ "번째 사원 : " + AllPeople);
         }
     }
 
 
     public void delmember() {
         String name="";
-        scanner.nextLine();
         System.out.println("삭제할 직원 이름 : ex)홍길동 ");
         name = scanner.nextLine();
         people.remove(name);
