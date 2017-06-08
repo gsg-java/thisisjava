@@ -1,6 +1,6 @@
 package gs1.minho.model;
 
-import gs1.minho.model.CompanyPosition;
+import gs1.minho.enums.CompanyPosition;
 
 /**
  * IDE : IntelliJ IDEA

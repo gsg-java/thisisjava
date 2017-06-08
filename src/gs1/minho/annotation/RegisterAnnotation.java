@@ -1,7 +1,5 @@
 package gs1.minho.annotation;
 
-import gs1.minho.model.CompanyPosition;
-
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
