@@ -3,6 +3,8 @@ package Member;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import static Member.Member.isNum;
+
 /**
  * Created by Nekisse_lee on 2017. 6. 5..
  */
@@ -18,24 +20,28 @@ public class MemberExample {
             System.out.println("----------------------------------------");
             System.out.print("선택> ");
 
-        int munuNum = scanner.nextInt();
 
 
-
-          switch (munuNum) {
-              case 1:
-                  addmember();
-                  break;
-            case 2:
-                modmember(); break;
-            case 3:
-                delmember(); break;
-              case 4:
-                  searchmember();
-                  break;
-          }
-      }
-
+            String menuNum = scanner.nextLine();
+                if(isNum(menuNum)){
+                    switch (menuNum) {
+                        case "1":
+                            addmember();
+                            break;
+                        case "2":
+                            modmember();
+                            break;
+                        case "3":
+                            delmember();
+                            break;
+                        case "4":
+                            searchmember();
+                            break;
+                    }
+                }else{
+                    System.out.println("숫자만 입력가능합니다");
+                }
+        }
     }
 
 
