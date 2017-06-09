@@ -1,5 +1,6 @@
 package gs1.minho.controller;
 
+import gs1.minho.annotation.ErrorView;
 import gs1.minho.annotation.RequestView;
 import gs1.minho.annotation.ResponseView;
 import gs1.minho.annotation.Service;
@@ -7,6 +8,7 @@ import gs1.minho.request.Request;
 import gs1.minho.service.EmployeeService;
 import gs1.minho.view.EmployeeView;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.HashMap;
 import java.util.Map;
 import java.lang.reflect.Method;
@@ -20,32 +22,32 @@ import java.lang.reflect.Method;
 public class Controller {
     private EmployeeView view;
     private EmployeeService service;
-    private Map<String, Method> serviceMethodTable;
-    private Method[] requestViewMethodTable;
-    private Map<String, Method> responseViewMethodTable;
+    private Map<String, Method> serviceTable;
+    private Method[] requestViewTable;
+    private Map<String, Method> responseViewTable;
+    private Map<String, Method> errorViewTable;
 
     public Controller() {
         view = new EmployeeView();
         service = new EmployeeService();
-        serviceMethodTable = new HashMap<>();
-        requestViewMethodTable = new Method[EmployeeView.class.getDeclaredMethods().length];
-        responseViewMethodTable = new HashMap<>();
-
-        for(Method method : EmployeeView.class.getDeclaredMethods()) {
-            if(method.isAnnotationPresent(RequestView.class)) {
-                requestViewMethodTable[method.getAnnotation(RequestView.class).value()] = method;
-            }
-        }
+        serviceTable = new HashMap<>();
+        requestViewTable = new Method[EmployeeView.class.getDeclaredMethods().length];
+        responseViewTable = new HashMap<>();
+        errorViewTable = new HashMap<>();
 
         for(Method method : EmployeeView.class.getDeclaredMethods()) {
             if(method.isAnnotationPresent(ResponseView.class)) {
-                responseViewMethodTable.put(method.getAnnotation(ResponseView.class).request(), method);
+                responseViewTable.put(method.getAnnotation(ResponseView.class).request(), method);
+            } else if(method.isAnnotationPresent(RequestView.class)) {
+                requestViewTable[method.getAnnotation(RequestView.class).value()] = method;
+            } else if(method.isAnnotationPresent(ErrorView.class)) {
+                errorViewTable.put(method.getAnnotation(ErrorView.class).request(), method);
             }
         }
 
         for(Method method : EmployeeService.class.getDeclaredMethods()) {
             if(method.isAnnotationPresent(Service.class)) {
-                serviceMethodTable.put(method.getAnnotation(Service.class).method(), method);
+                serviceTable.put(method.getAnnotation(Service.class).method(), method);
             }
         }
     }
@@ -54,7 +56,7 @@ public class Controller {
         while(true) {
             int selected = view.showMenu();
             try {
-                Object request = requestViewMethodTable[selected].invoke(view);
+                Object request = requestViewTable[selected].invoke(view);
                 processRequest((Request) request);
             } catch (Exception e) {
             }
@@ -64,14 +66,14 @@ public class Controller {
     private void processRequest(Request request) {
         String requestName = request.getRequestName();
         try {
-            Object object = serviceMethodTable.get(requestName).invoke(service, request);
-            if (object != null) {
-                responseViewMethodTable.get(requestName).invoke(view, object);
+            Object object = serviceTable.get(requestName).invoke(service, request);
+            if(object == null) {
+                errorViewTable.get(requestName).invoke(view, request);
             } else {
-                responseViewMethodTable.get(requestName).invoke(view, object);
+                responseViewTable.get(requestName).invoke(view, object);
             }
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (InvocationTargetException e) {
+        } catch (IllegalAccessException e) {
         }
     }
 }

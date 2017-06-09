@@ -1,6 +1,6 @@
 package gs1.minho.view;
 
-import com.sun.org.apache.regexp.internal.RE;
+import gs1.minho.annotation.ErrorView;
 import gs1.minho.annotation.RequestView;
 import gs1.minho.annotation.ResponseView;
 import gs1.minho.enums.CompanyPosition;
@@ -10,7 +10,6 @@ import gs1.minho.request.Request;
 import gs1.minho.request.SearchByNameRequest;
 import gs1.minho.request.ShowAllRequest;
 
-import java.util.Iterator;
 import java.util.Map;
 import java.util.Scanner;
 
@@ -23,7 +22,7 @@ import java.util.Scanner;
 public class EmployeeView {
     private static final Scanner scanner = new Scanner(System.in);
 
-    @RequestView(comment = "사원을 등록하기 위한 화면 입니다", value = 1)
+    @RequestView(comment = "사원을 등록하기 위한 화면", value = 1)
     public Request registerReq() {
         System.out.println("------------------------사원등록--------------------------");
         System.out.print("사원 이름 : ");
@@ -34,7 +33,12 @@ public class EmployeeView {
         return new RegisterRequest(name, positions[pos - 1]);
     }
 
-    @RequestView(comment = "이름으로 사원을 검색하기 위한 화면 입니다", value = 5)
+    @RequestView(comment = "사원 전체 조회에 따른 화면, 현재는 아무것도 없고 후에 정렬 옵션을 넣을 것", value = 4)
+    public Request showAllReq() {
+        return new ShowAllRequest();
+    }
+
+    @RequestView(comment = "이름으로 사원을 검색하기 위한 화면", value = 5)
     public Request searchByNameReq() {
         System.out.println("------------------------사원검색--------------------------");
         System.out.print("검색할 사원 이름 : ");
@@ -42,51 +46,53 @@ public class EmployeeView {
         return new SearchByNameRequest(name);
     }
 
-    @RequestView(comment = "", value = 4)
-    public Request showAllReq() {
-        return new ShowAllRequest();
-    }
-
-
     @ResponseView(comment = "Register Request 의 결과 화면", request = "Register")
     public void registerRes(Object object) {
-        if(object != null) {
-            Emplyee employee = (Emplyee) object;
-            System.out.println("이름 : " + employee.getName());
-            System.out.println("직책 : " + employee.getPosition());
-            System.out.println("------------------------등록완료--------------------------");
-        } else {
-            System.out.println("------------------------등록실패--------------------------");
-        }
+        Emplyee employee = (Emplyee) object;
+        System.out.println("이름 : " + employee.getName());
+        System.out.println("직책 : " + employee.getPosition());
+        System.out.println("------------------------등록완료--------------------------");
     }
 
     @ResponseView(comment = "ShowAll Request 의 결과 화면", request = "ShowAll")
     public void showAllRes(Object object) {
-        if(object != null) {
-            System.out.println("------------------------조회완료--------------------------");
-            Map<String, Emplyee> employeeMap = (Map<String, Emplyee>) object;
-            for (String name : employeeMap.keySet()) {
-                System.out.println("이름 : " + name + " 직책 : " + employeeMap.get(name).getPosition());
-            }
-            System.out.println("--------------------------------------------------------");
-        } else {
-            System.out.println("------------------------조회실패--------------------------");
+        System.out.println("------------------------조회완료--------------------------");
+        Map<String, Emplyee> employeeMap = (Map<String, Emplyee>) object;
+        for (String name : employeeMap.keySet()) {
+            System.out.println("이름 : " + name + " 직책 : " + employeeMap.get(name).getPosition());
         }
+        System.out.println("--------------------------------------------------------");
     }
 
     @ResponseView(comment = "SearchByName Request 의 결과 화면", request = "SearchByName")
     public void searchByNameRes(Object object) {
-        if(object != null) {
-            System.out.println("------------------------검색완료--------------------------");
-            Emplyee employee = (Emplyee) object;
-            System.out.println("이름 : " + employee.getName());
-            System.out.println("직책 : " + employee.getPosition());
-            System.out.println("--------------------------------------------------------");
-        } else {
-            System.out.println("------------------------검색실패--------------------------");
-        }
+        System.out.println("------------------------검색완료--------------------------");
+        Emplyee employee = (Emplyee) object;
+        System.out.println("이름 : " + employee.getName());
+        System.out.println("직책 : " + employee.getPosition());
+        System.out.println("--------------------------------------------------------");
     }
 
+    @ErrorView(comment = "Register Request 이 실패했을때 화면", request = "Register")
+    public void registerReqFail(Request request) {
+        System.out.println("-------------------------실패----------------------------");
+        System.out.println(((RegisterRequest)request).getName() + "님은 이미 등록돼있습니다.");
+        System.out.println("--------------------------------------------------------");
+    }
+
+    @ErrorView(comment = "SearchByName Request 이 실패했을때 화면", request = "SearchByName")
+    public void searchByNameReqFail(Request request) {
+        System.out.println("-------------------------실패----------------------------");
+        System.out.println(((SearchByNameRequest)request).getName() + "님은 등록돼있지않습니다 ");
+        System.out.println("--------------------------------------------------------");
+    }
+
+    @ErrorView(comment = "ShowAll Request 이 실패했을때 화면", request = "ShowAll")
+    public void showAllReqFail(Request request) {
+        System.out.println("-------------------------실패----------------------------");
+        System.out.println("등록 되어 있는 사원이 없습니다.");
+        System.out.println("--------------------------------------------------------");
+    }
 
     public int showMenu() {
         System.out.println("--------------------------------------------------------");

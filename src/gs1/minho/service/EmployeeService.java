@@ -28,7 +28,7 @@ public class EmployeeService {
         RegisterRequest registerRequest = (RegisterRequest)request;
         Emplyee employee = employeeDao.searchByName(registerRequest.getName());
         if(employee != null) {
-            throw new AlreadyExistEmployeeException(registerRequest.getName() + " 님 은 등록된 상태입니다.");
+            return null;
         }
         Emplyee newEmployee = new Emplyee(registerRequest.getName(), registerRequest.getPosition());
         employeeDao.insert(newEmployee);
@@ -37,6 +37,7 @@ public class EmployeeService {
 
     @Service(method = "ShowAll")
     public Map<String, Emplyee> getEmployees(Request request) {
+        if(employeeDao.getEmployeeMap().isEmpty()) return null;
         return employeeDao.getEmployeeMap();
     }
 
@@ -45,7 +46,7 @@ public class EmployeeService {
         SearchByNameRequest searchByNameRequest = (SearchByNameRequest) request;
         Emplyee employee = employeeDao.searchByName(searchByNameRequest.getName());
         if(employee == null){
-            throw new NotExistEmployeeException(searchByNameRequest.getName() + " 님 은 등록되지 않은 상태입니다.");
+            return null;
         }
         return employeeDao.searchByName(searchByNameRequest.getName());
     }
