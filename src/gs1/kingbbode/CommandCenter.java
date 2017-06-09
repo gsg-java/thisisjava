@@ -76,8 +76,15 @@ public class CommandCenter {
             this.service = service;
         }
 
-        void execute() throws InvocationTargetException, IllegalAccessException {
-            this.method.invoke(this.service);
+        void execute() throws IllegalAccessException, InvocationTargetException {
+            try {
+                this.method.invoke(this.service);
+            } catch (InvocationTargetException e) {
+                if(!(e.getCause() instanceof CommandException)){
+                    throw e;
+                }
+                System.out.println(e.getCause().getMessage());
+            }
         }
 
         @Override
