@@ -8,4 +8,7 @@ public class NotExistEmployeeException extends NullPointerException {
     public NotExistEmployeeException(String message) {
         super(message);
     }
+    public String getMessage() {
+        return super.getMessage();
+    }
 }

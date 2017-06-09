@@ -13,7 +13,7 @@ public class EmployeeDao {
     private static int empId = 0;
     private static EmployeeDao instance;
 
-    public static EmployeeDao getGetInstane() {
+    public static EmployeeDao getInstance() {
         if(instance == null) {
             instance = new EmployeeDao();
         }

@@ -20,7 +20,7 @@ public class EmployeeService {
     private EmployeeDao employeeDao;
 
     public EmployeeService() {
-        this.employeeDao = EmployeeDao.getGetInstane();
+        this.employeeDao = EmployeeDao.getInstance();
     }
 
     @Service(method = "Register")
