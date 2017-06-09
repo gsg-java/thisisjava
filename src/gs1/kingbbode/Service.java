@@ -23,7 +23,7 @@ public class Service {
         Position position = null;
         while (name == null || position == null){
             try {
-                name = inputName(name, true);
+                name = inputName(name, true, false);
                 position = inputPosition(position);
             }catch (CommandException e) {
                 System.out.println(e.getMessage());
@@ -38,10 +38,7 @@ public class Service {
     @Command(number = 2, name = "수정")
     public void update(){
         System.out.print("수정할 사람의 ");
-        Member member = database.findByName(inputName(null, false));
-        if(member == null){
-            throw new NotFoundMemberException();
-        }
+        Member member = database.findByName(inputName(null, false, true));
         Position position = null;
         while(position == null){
             try {
@@ -54,14 +51,15 @@ public class Service {
         }
         member.update(position);
         database.save(member);
+        System.out.println("수정 완료");
     }
 
     @Command(number = 3, name = "삭제")
     public void delete(){
-        System.out.println();
-        System.out.println("삭제 시작");
-        System.out.println("삭제 종료");
-        System.out.println();
+        System.out.print("삭제할 사람의 ");
+        Member member = database.findByName(inputName(null, false, true));
+        database.delete(member);
+        System.out.println("삭제 완료");
     }
 
     @Command(number = 4, name = "조회")
@@ -69,14 +67,21 @@ public class Service {
         database.findAll().stream().map(Member::toString).forEach(System.out::println);
     }
 
-    private String inputName(String name, boolean isCheckDuplicate) {
+    private String inputName(String name, boolean isCheckDuplicate, boolean isCheckContains) {
         if(name != null){
             return name;
         }
         System.out.print("이름은? ");
         name = scanner.next();
-        if(isCheckDuplicate && database.findByName(name)!=null){
+        if(!isCheckDuplicate && !isCheckContains){
+            return name;
+        }
+        boolean isExist = database.findByName(name)!=null;
+        if(isCheckDuplicate && isExist){
             throw new DuplicateNameException();
+        }
+        if(isCheckContains && !isExist){
+            throw new NotFoundMemberException();
         }
         return name;
     }

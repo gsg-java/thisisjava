@@ -38,4 +38,7 @@ public class Database {
         }
         return db.get(name);
     }
+    public void delete(Member member){
+        db.remove(member.getName());
+    }
 }
