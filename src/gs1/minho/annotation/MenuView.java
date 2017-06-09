@@ -7,12 +7,10 @@ import java.lang.annotation.Target;
 
 /**
  * IDE : IntelliJ IDEA
- * Created by minho on 2017. 6. 8..
+ * Created by minho on 2017. 6. 9..
  */
-
 @Target(ElementType.METHOD)
-@Retention(RetentionPolicy.RUNTIME)
-public @interface RequestView {
-   String comment();
-   int value();
+@Retention(RetentionPolicy.SOURCE)
+public @interface MenuView {
+    String comment();
 }
