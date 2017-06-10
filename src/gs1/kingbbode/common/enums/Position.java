@@ -1,6 +1,6 @@
-package gs1.kingbbode.enums;
+package gs1.kingbbode.common.enums;
 
-import gs1.kingbbode.exceptions.NotFoundCommandException;
+import gs1.kingbbode.common.exceptions.NotFoundCommandException;
 
 import java.util.Arrays;
 import java.util.Objects;

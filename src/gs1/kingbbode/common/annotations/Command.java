@@ -1,4 +1,4 @@
-package gs1.kingbbode.annotations;
+package gs1.kingbbode.common.annotations;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

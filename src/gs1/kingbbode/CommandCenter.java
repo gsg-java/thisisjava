@@ -1,9 +1,10 @@
 package gs1.kingbbode;
 
-import gs1.kingbbode.annotations.Command;
-import gs1.kingbbode.domain.Menu;
-import gs1.kingbbode.exceptions.CommandException;
-import gs1.kingbbode.exceptions.NotFoundCommandException;
+import gs1.kingbbode.common.annotations.Command;
+import gs1.kingbbode.common.domain.Menu;
+import gs1.kingbbode.common.exceptions.CommandException;
+import gs1.kingbbode.common.exceptions.NotFoundCommandException;
+import gs1.kingbbode.service.Service;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;

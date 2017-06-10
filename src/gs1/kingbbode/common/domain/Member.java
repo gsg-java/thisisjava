@@ -1,6 +1,6 @@
-package gs1.kingbbode.domain;
+package gs1.kingbbode.common.domain;
 
-import gs1.kingbbode.enums.Position;
+import gs1.kingbbode.common.enums.Position;
 
 /**
  * Created by YG-MAC on 2017. 6. 4..

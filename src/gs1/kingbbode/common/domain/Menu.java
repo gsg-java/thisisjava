@@ -1,4 +1,4 @@
-package gs1.kingbbode.domain;
+package gs1.kingbbode.common.domain;
 
 import gs1.kingbbode.CommandCenter;
 

@@ -1,4 +1,4 @@
-package gs1.kingbbode.exceptions;
+package gs1.kingbbode.common.exceptions;
 
 /**
  * Created by YG-MAC on 2017. 6. 9..

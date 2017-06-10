@@ -1,11 +1,13 @@
-package gs1.kingbbode;
+package gs1.kingbbode.service;
 
-import gs1.kingbbode.annotations.Command;
-import gs1.kingbbode.domain.Member;
-import gs1.kingbbode.enums.Position;
-import gs1.kingbbode.exceptions.CommandException;
-import gs1.kingbbode.exceptions.DuplicateNameException;
-import gs1.kingbbode.exceptions.NotFoundMemberException;
+import gs1.kingbbode.ScannerHolder;
+import gs1.kingbbode.common.annotations.Command;
+import gs1.kingbbode.common.domain.Member;
+import gs1.kingbbode.common.enums.Position;
+import gs1.kingbbode.common.exceptions.CommandException;
+import gs1.kingbbode.common.exceptions.DuplicateNameException;
+import gs1.kingbbode.common.exceptions.NotFoundMemberException;
+import gs1.kingbbode.repository.MemberRepository;
 
 import java.util.Scanner;
 
@@ -14,7 +16,7 @@ import java.util.Scanner;
  */
 public class Service {
 
-    private Database database = new Database();
+    private MemberRepository database = new MemberRepository();
     private Scanner scanner = ScannerHolder.scanner;
 
     @Command(number = 1, name = "등록")
