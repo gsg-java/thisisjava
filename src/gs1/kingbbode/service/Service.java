@@ -69,6 +69,15 @@ public class Service {
         database.findAll().stream().map(Member::toString).forEach(System.out::println);
     }
 
+    @Command(number = 5, name = "사원 조회")
+    public void searchByName() {
+        System.out.println(
+                database.findByName(
+                        inputName(null, false, true))
+                        .toString()
+        );
+    }
+
     private String inputName(String name, boolean isCheckDuplicate, boolean isCheckContains) {
         if(name != null){
             return name;
