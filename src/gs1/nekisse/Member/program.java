@@ -1,4 +1,4 @@
-package Member;
+package gs1.nekisse.Member;
 
 import java.lang.reflect.Method;
 

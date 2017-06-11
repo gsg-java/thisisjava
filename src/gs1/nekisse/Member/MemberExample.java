@@ -1,9 +1,8 @@
-package Member;
+package gs1.nekisse.Member;
 
 import java.util.ArrayList;
 import java.util.Scanner;
-
-import static Member.Member.isNum;
+import static gs1.nekisse.Member.Member.isNum;
 
 /**
  * Created by Nekisse_lee on 2017. 6. 5..
