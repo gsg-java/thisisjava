@@ -13,8 +13,7 @@ public class EMResponseView extends EMView {
     @ResponseView(comment = "Register Request 의 결과 화면", request = "Register")
     public void registerRes(Object object) {
         Emplyee employee = (Emplyee) object;
-        System.out.println("이름 : " + employee.getName());
-        System.out.println("직책 : " + employee.getPosition());
+        System.out.println(employee);
         System.out.println("------------------------등록완료--------------------------");
     }
 
@@ -23,7 +22,7 @@ public class EMResponseView extends EMView {
         System.out.println("------------------------조회완료--------------------------");
         Map<String, Emplyee> employeeMap = (Map<String, Emplyee>) object;
         for (String name : employeeMap.keySet()) {
-            System.out.println("이름 : " + name + " 직책 : " + employeeMap.get(name).getPosition());
+            System.out.println(employeeMap.get(name));
         }
         System.out.println("--------------------------------------------------------");
     }
@@ -32,8 +31,7 @@ public class EMResponseView extends EMView {
     public void searchByNameRes(Object object) {
         System.out.println("------------------------검색완료--------------------------");
         Emplyee employee = (Emplyee) object;
-        System.out.println("이름 : " + employee.getName());
-        System.out.println("직책 : " + employee.getPosition());
+        System.out.println(employee);
         System.out.println("--------------------------------------------------------");
     }
 }

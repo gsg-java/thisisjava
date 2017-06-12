@@ -48,5 +48,10 @@ public class Emplyee {
     public void changePosition(CompanyPosition currnetPosition, CompanyPosition newPosition) {
 
     }
+
+    @Override
+    public String toString() {
+        return "이름 : " + this.name + " 직책 : " + this.position;
+    }
 }
 
