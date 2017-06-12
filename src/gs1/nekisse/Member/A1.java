@@ -1,4 +1,4 @@
-package Member;
+package gs1.nekisse.Member;
 
 /**
  * Created by Nekisse_lee on 2017. 6. 5..
