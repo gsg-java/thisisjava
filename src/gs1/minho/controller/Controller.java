@@ -25,10 +25,10 @@ public class Controller {
     private EMResponseView responseView;
     private EMErrorView errorView;
     private EmployeeService service;
-    private Map<String, Method> serviceTable;
-    private Method[] requestViewTable;
-    private Map<String, Method> responseViewTable;
-    private Map<String, Method> errorViewTable;
+    private Map<String, Method> serviceMethodMap;
+    private Method[] requestViewMethodArray;
+    private Map<String, Method> responseViewMethodMap;
+    private Map<String, Method> errorViewMethodMap;
 
     public Controller() {
         initViews();
@@ -44,33 +44,35 @@ public class Controller {
     }
 
     private void initTables() {
-        serviceTable = new HashMap<>();
-        responseViewTable = new HashMap<>();
-        errorViewTable = new HashMap<>();
-        requestViewTable = new Method[EMRequestView.class.getDeclaredMethods().length];
+        serviceMethodMap = new HashMap<>();
+        responseViewMethodMap = new HashMap<>();
+        errorViewMethodMap = new HashMap<>();
+        requestViewMethodArray = new Method[EMRequestView.class.getDeclaredMethods().length];
         for(Method method : EMResponseView.class.getDeclaredMethods()) {
             if (method.isAnnotationPresent(ResponseView.class)) {
-                responseViewTable.put(method.getAnnotation(ResponseView.class).request(), method);
+                responseViewMethodMap.put(method.getAnnotation(ResponseView.class).request(), method);
             }
         }
         for(Method method : EMRequestView.class.getDeclaredMethods()) {
             if (method.isAnnotationPresent(RequestView.class)) {
-                requestViewTable[method.getAnnotation(RequestView.class).value()] = method;
+                requestViewMethodArray[method.getAnnotation(RequestView.class).value()] = method;
             }
         }
 
         for(Method method: EMErrorView.class.getDeclaredMethods()) {
             if(method.isAnnotationPresent(ErrorView.class)) {
-                errorViewTable.put(method.getAnnotation(ErrorView.class).request(), method);
+                errorViewMethodMap.put(method.getAnnotation(ErrorView.class).request(), method);
             }
         }
 
         for(Method method : EmployeeService.class.getDeclaredMethods()) {
             if(method.isAnnotationPresent(Service.class)) {
-                serviceTable.put(method.getAnnotation(Service.class).method(), method);
+                serviceMethodMap.put(method.getAnnotation(Service.class).method(), method);
             }
         }
     }
+
+
 
     private void initService() {
         service = new EmployeeService();
@@ -80,7 +82,7 @@ public class Controller {
         while(true) {
             int selected = menuView.showMenu();
             try {
-                Object request = requestViewTable[selected].invoke(requestView);
+                Object request = requestViewMethodArray[selected].invoke(requestView);
                 processRequest((Request) request);
             } catch (Exception e) {
             }
@@ -90,11 +92,11 @@ public class Controller {
     private void processRequest(Request request) {
         String requestName = request.getRequestName();
         try {
-            Object object = serviceTable.get(requestName).invoke(service, request);
+            Object object = serviceMethodMap.get(requestName).invoke(service, request);
             if(object == null) {
-                errorViewTable.get(requestName).invoke(errorView, request);
+                errorViewMethodMap.get(requestName).invoke(errorView, request);
             } else {
-                responseViewTable.get(requestName).invoke(responseView, object);
+                responseViewMethodMap.get(requestName).invoke(responseView, object);
             }
         } catch (InvocationTargetException e) {
         } catch (IllegalAccessException e) {
