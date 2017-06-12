@@ -1,5 +1,6 @@
 package gs1.minho.controller;
 
+import gs1.kingbbode.common.domain.Menu;
 import gs1.minho.annotation.ErrorView;
 import gs1.minho.annotation.RequestView;
 import gs1.minho.annotation.ResponseView;
@@ -33,7 +34,7 @@ public class Controller {
     public Controller() {
         initViews();
         initService();
-        initTables();
+        initMaps();
     }
 
     private void initViews() {
@@ -43,7 +44,7 @@ public class Controller {
         errorView = new EMErrorView();
     }
 
-    private void initTables() {
+    private void initMaps() {
         serviceMethodMap = new HashMap<>();
         responseViewMethodMap = new HashMap<>();
         errorViewMethodMap = new HashMap<>();
@@ -71,7 +72,6 @@ public class Controller {
             }
         }
     }
-
 
 
     private void initService() {
