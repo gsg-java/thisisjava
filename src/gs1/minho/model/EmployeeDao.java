@@ -1,5 +1,8 @@
 package gs1.minho.model;
 
+import com.sun.org.apache.xpath.internal.operations.Bool;
+import gs1.minho.enums.CompanyPosition;
+
 import java.util.Map;
 import java.util.TreeMap;
 
@@ -22,12 +25,20 @@ public class EmployeeDao {
 
     private EmployeeDao() {
         employeeMap = new TreeMap<>();
+        employeeMap.put("minho1",new Emplyee("minho1", CompanyPosition.CLERK));
+        employeeMap.put("minho2",new Emplyee("minho2", CompanyPosition.SENIOR));
+        employeeMap.put("minho3",new Emplyee("minho3", CompanyPosition.ASSIST));
+        employeeMap.put("minho4",new Emplyee("minho4", CompanyPosition.MANAGER));
     }
 
     public Emplyee insert(Emplyee employee) {
         employee.setId(++empId);
         employeeMap.put(employee.getName(), employee);
         return employee;
+    }
+
+    public Emplyee deleteEmployee (String name) {
+        return employeeMap.remove(name);
     }
 
     public Emplyee searchByName (String name) {
