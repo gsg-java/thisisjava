@@ -4,6 +4,7 @@ import gs1.minho.annotation.Service;
 import gs1.minho.exception.AlreadyExistEmployeeException;
 import gs1.minho.exception.NotExistEmployeeException;
 import gs1.minho.model.EmployeeDao;
+import gs1.minho.request.DeleteRequest;
 import gs1.minho.request.RegisterRequest;
 import gs1.minho.model.Emplyee;
 import gs1.minho.request.Request;
@@ -33,6 +34,16 @@ public class EmployeeService {
         Emplyee newEmployee = new Emplyee(registerRequest.getName(), registerRequest.getPosition());
         employeeDao.insert(newEmployee);
         return newEmployee;
+    }
+
+    @Service(method = "Delete")
+    public Emplyee delete(Request request) {
+        DeleteRequest deleteRequest = (DeleteRequest) request;
+        Emplyee employee = employeeDao.deleteEmployee(deleteRequest.getName());
+        if (employee == null) {
+            return null;
+        }
+        return employee;
     }
 
     @Service(method = "ShowAll")

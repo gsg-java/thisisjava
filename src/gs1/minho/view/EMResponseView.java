@@ -17,6 +17,13 @@ public class EMResponseView extends EMView {
         System.out.println("------------------------등록완료--------------------------");
     }
 
+    @ResponseView(comment = "Delete Request 의 결과 화면", request = "Delete")
+    public void deleteRes(Object object) {
+        Emplyee emplyee = (Emplyee) object;
+        System.out.println(emplyee);
+        System.out.println("------------------------삭제완료--------------------------");
+    }
+
     @ResponseView(comment = "ShowAll Request 의 결과 화면", request = "ShowAll")
     public void showAllRes(Object object) {
         System.out.println("------------------------조회완료--------------------------");

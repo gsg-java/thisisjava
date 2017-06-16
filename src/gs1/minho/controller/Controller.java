@@ -5,6 +5,7 @@ import gs1.minho.annotation.ErrorView;
 import gs1.minho.annotation.RequestView;
 import gs1.minho.annotation.ResponseView;
 import gs1.minho.annotation.Service;
+import gs1.minho.exception.MenuInputBoundaryOutException;
 import gs1.minho.request.Request;
 import gs1.minho.service.EmployeeService;
 import gs1.minho.view.*;
@@ -84,7 +85,10 @@ public class Controller {
             try {
                 Object request = requestViewMethodArray[selected].invoke(requestView);
                 processRequest((Request) request);
+            } catch (MenuInputBoundaryOutException e) {
+                //System.out.print("asd");
             } catch (Exception e) {
+
             }
         }
     }
