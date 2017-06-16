@@ -1,12 +1,27 @@
 package gs1.str333;
 
+import java.lang.reflect.Method;
 import java.util.Scanner;
 
+import gs1.str333.annotation.AnnotationService;
+import gs1.str333.annotation.SelectAnnotation;
+
+/**
+ * 
+ * @author str333
+ * @date 2017. 6. 17.
+ */
 public class ManageForm {
+
+	private AnnotationService annotationService;
+
 	public void getManageForm() {
 
 		Integer number;
-		Scanner sc = new Scanner(System.in); // 문자 입력을 인자로 Scanner 생성
+		Scanner sc = new Scanner(System.in);
+		Method[] methodList = AnnotationService.class.getDeclaredMethods();
+
+		annotationService = new AnnotationService();
 
 		while (true) {
 			System.out.println("=======================================");
@@ -17,33 +32,40 @@ public class ManageForm {
 			System.out.println("5. 사원 검색(이름 기준)");
 
 			System.out.print("숫자 입력 : ");
+
+			Boolean numberCk = false;
 			if (sc.hasNextInt()) {
 				number = sc.nextInt();
-				selectNumber(number);
+				// selectNumber(number);
+				numberCk = false;
+
+				SelectAnnotation selectAnnotation = null;
+
+				for (Method m : methodList) {
+					if (m.getAnnotation(SelectAnnotation.class) == null) {
+						continue;
+					}
+					selectAnnotation = m.getAnnotation(SelectAnnotation.class);
+
+					if (selectAnnotation.number() == number) {
+						numberCk = true;
+						try {
+							m.invoke(annotationService);
+							break;
+						} catch (Exception e) {
+							continue;
+						}
+					}
+				}
+				if (!numberCk) {
+					System.out.println("error : input 1~5 value");
+				}
+
 			} else {
 				sc.nextLine();
-				System.out.println("숫자를 입력.");
+				System.out.println("error : input number");
 			}
 
-		}
-	}
-
-	private void selectNumber(int number) {
-
-		switch (number) {
-		case 1:
-			break;
-		case 2:
-			break;
-		case 3:
-			break;
-		case 4:
-			break;
-		case 5:
-			break;
-		default:
-			System.out.println("1 ~ 5 선택.");
-			break;
 		}
 	}
 }
