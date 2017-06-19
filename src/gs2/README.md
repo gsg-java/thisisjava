@@ -76,8 +76,7 @@
         
 - ENUM 사용 금지
 - 모든 조건을 클래스화(class, interface, abstract class)
-- 모든 자동차가 출고시의 주유량은 1L
-- 모든 주유소는 5L씩만 주유 가능
+- 주유량은 단위로만 가능 1L
 
 #### mission
 
