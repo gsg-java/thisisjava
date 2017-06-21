@@ -103,9 +103,17 @@
 출력 양식만 지켜주세요.
 
 ```java
-//public interface Car
-//public abstract class SampleCar implements Car
-//public class SampleSportCar extends SampleCar
+public class Car {
+    private int fuelEfficiency = 10;
+    private int speed = 100;
+    private Brand brand;
+    private Engine engine;
+    
+    public Car(Brand brand, Engine engine) {
+            this.brand = brand;
+            this.engine = engine;
+    }
+}
 
 public class Main {
     public static void main(String[] args) {
