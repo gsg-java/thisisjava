@@ -25,11 +25,11 @@ public class Sedan implements Engine {
 
     @Override
     public int makeSpeed(int originalSpeed) {
-        return originalSpeed - 5;
+        return originalSpeed - 4;
     }
 
     @Override
     public int makeFuel(int originalFuelEfficiency) {
-        return originalFuelEfficiency + 2;
+        return originalFuelEfficiency + 3;
     }
 }
