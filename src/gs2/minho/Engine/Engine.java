@@ -1,5 +1,6 @@
 package gs2.minho.Engine;
 
+import gs2.minho.Fuel.Fuel;
 import gs2.minho.Influenceable;
 
 /**
@@ -7,7 +8,7 @@ import gs2.minho.Influenceable;
  * Created by minho on 2017. 6. 22..
  */
 public abstract class Engine implements Influenceable {
-    private Fuel fuelType;
+    protected Fuel fuelType;
 
     @Override
     public abstract int influenceFuelEfficiency(int value);

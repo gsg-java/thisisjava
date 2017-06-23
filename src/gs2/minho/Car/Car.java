@@ -15,13 +15,14 @@ public class Car implements CarInterface {
     private Engine engine;
     private String name;
 
-    public Car(Brand brand, Engine engine) {
+    public Car(String name, Brand brand, Engine engine) {
+        this.name = name;
         this.brand = brand;
         this.engine = engine;
         this.valueSetting();
     }
 
-    public void valueSetting() {
+    private void valueSetting() {
         fuelEfficiency = brand.influenceFuelEfficiency(fuelEfficiency);
         fuelEfficiency = engine.influenceFuelEfficiency(fuelEfficiency);
         speed = brand.influenceSpeed(speed);
@@ -33,12 +34,24 @@ public class Car implements CarInterface {
         int discountCost = brand.discountCost(amount, engine.fuelType());
         return cost - discountCost;
     }
+
     @Override
     public String navigate(int distance) {
-        double timeToDrive = distance / speed;
-        int necessaryAmount = distance / fuelEfficiency;
-        return name + "()";
+        String timeToDrive = calculatorTime(distance);
+        double necessaryAmount = costOfchargingFuel(distance / fuelEfficiency);
+        return name + " (" + brand.toString() + engine.toString() + engine.fuelType().toString() +
+                "연비 : " + fuelEfficiency + "km, 걸린 시간 : " + timeToDrive + ",  비용 : " + necessaryAmount + "원 )";
 
         //(브랜드 : 쉐보레, 종류 : 경차, 주유 종류 : 경유, 연비 : xx km, 속도 : xx km, 걸린 시간 : xx 시간, 비용 : xx 원)
+    }
+
+    private String calculatorTime(int distance) {
+        double hourTmp = distance / (double)speed;
+        int hour = (int)hourTmp;
+        double minTmp = (hourTmp - hour) * 60;
+        int min = (int)minTmp;
+        int sec = (int)((minTmp - min) * 60);
+
+        return hour + "시 " + min + "분 " + sec + "초 ";
     }
 }
