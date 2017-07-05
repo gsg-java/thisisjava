@@ -1,20 +1,21 @@
-package gs3.kingbbode.step3;
+package gs3.kingbbode.step2;
 
 import gs3.kingbbode.step1.interfaces.Camera;
 
 /**
  * Created by YG-MAC on 2017. 7. 3..
  */
-public class AbstractCamera implements Camera {
+public class NikonCameraImpl implements Camera {
     private String name;
 
-    public AbstractCamera(String name) {
+    public NikonCameraImpl(String name) {
         this.name = name;
     }
 
     @Override
     public void snapshot() {
-        System.out.println("찰카아악");
+        System.out.println("츠을커");
+        System.out.println("어억");
     }
 
     @Override

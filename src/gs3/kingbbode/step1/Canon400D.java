@@ -8,7 +8,8 @@ import gs3.kingbbode.step1.interfaces.Camera;
 public class Canon400D implements Camera{
     @Override
     public void snapshot() {
-        System.out.println("찰카아악");
+        System.out.println("찰카");
+        System.out.println("아악");
     }
 
     @Override

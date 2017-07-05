@@ -8,7 +8,8 @@ import gs3.kingbbode.step1.interfaces.Camera;
 public class NikonD40 implements Camera{
     @Override
     public void snapshot() {
-        System.out.println("츠을커어억");
+        System.out.println("츠을커");
+        System.out.println("어억");
     }
 
 

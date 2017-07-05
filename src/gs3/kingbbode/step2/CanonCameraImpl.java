@@ -5,16 +5,17 @@ import gs3.kingbbode.step1.interfaces.Camera;
 /**
  * Created by YG-MAC on 2017. 7. 3..
  */
-public class CameraImpl implements Camera {
+public class CanonCameraImpl implements Camera {
     private String name;
 
-    public CameraImpl(String name) {
+    public CanonCameraImpl(String name) {
         this.name = name;
     }
 
     @Override
     public void snapshot() {
-        System.out.println("찰카아악");
+        System.out.println("찰카");
+        System.out.println("아악");
     }
 
     @Override

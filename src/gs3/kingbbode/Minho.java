@@ -27,14 +27,20 @@ public class Minho {
                 "잠자기 전 내 마음을 안정시키기 위해 " + mp3.getName() + "로 음악을 듣지."
         );
         mp3.play();
+        System.out.println("이 노래 말고..");
+        mp3.next();
+        System.out.println("zzzZ");
         System.out.println(
                 "나는 나의 아름다운 모습을 " + camera.getName() + "로 담아."
         );
         camera.snapshot();
         
         System.out.println(
-                "오늘도 소개팅 어플을 통해 그녀들에게 " + mobile.getName() + "으로 전화를 걸어."
+                "오늘도 소개팅 어플을 통해 그녀들에게 " + mobile.getName() + "으로 문자를 보내."
         );
+        mobile.sendMessage();
+        System.out.println("전화해야지!");
         mobile.call();
+
     }
 }
