@@ -60,6 +60,6 @@ public class MemberService {
         String name;
         System.out.println("삭제할 직원 이름 : ex)홍길동 ");
         name = scanner.nextLine();
-        people.remove(name);
-    }
+               people.remove(name);
+        }
 }

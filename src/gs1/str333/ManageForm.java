@@ -34,38 +34,35 @@ public class ManageForm {
 			System.out.print("숫자 입력 : ");
 
 			Boolean numberCk = false;
-			if (sc.hasNextInt()) {
-				number = sc.nextInt();
-				// selectNumber(number);
-				numberCk = false;
+			if (!sc.hasNextInt()) {
+				System.out.println("error : input number");
+				continue;
+			}
+			number = sc.nextInt();
+			// selectNumber(number);
+			numberCk = false;
 
-				SelectAnnotation selectAnnotation = null;
+			SelectAnnotation selectAnnotation = null;
 
-				for (Method m : methodList) {
-					if (m.getAnnotation(SelectAnnotation.class) == null) {
+			for (Method m : methodList) {
+				if (m.getAnnotation(SelectAnnotation.class) == null) {
+					continue;
+				}
+				selectAnnotation = m.getAnnotation(SelectAnnotation.class);
+
+				if (selectAnnotation.number() == number) {
+					numberCk = true;
+					try {
+						m.invoke(annotationService);
+						break;
+					} catch (Exception e) {
 						continue;
 					}
-					selectAnnotation = m.getAnnotation(SelectAnnotation.class);
-
-					if (selectAnnotation.number() == number) {
-						numberCk = true;
-						try {
-							m.invoke(annotationService);
-							break;
-						} catch (Exception e) {
-							continue;
-						}
-					}
 				}
-				if (!numberCk) {
-					System.out.println("error : input 1~5 value");
-				}
-
-			} else {
-				sc.nextLine();
-				System.out.println("error : input number");
 			}
-
+			if (!numberCk) {
+				System.out.println("error : input 1~5 value");
+			}
 		}
 	}
 }

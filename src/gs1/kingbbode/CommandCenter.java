@@ -43,6 +43,8 @@ public class CommandCenter {
         System.out.println("***** Kingbbode Commander v 0.0.1 *****");
         System.out.println("***************************************");
         this.menu.print();
+        //Method method = service.insert;
+        //method.invoke(service);
         Scanner scanner = ScannerHolder.scanner;
         while (scanner.hasNext()){
             try {
