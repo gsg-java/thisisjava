@@ -5,4 +5,5 @@ package gs3.kingbbode.step1.interfaces;
  */
 public interface MP3 extends Electronic{
     void play();
+    void next();
 }

@@ -1,11 +1,17 @@
-package gs3.kingbbode.step1;
+package gs3.kingbbode.step2;
 
 import gs3.kingbbode.step1.interfaces.Mobile;
 
 /**
  * Created by YG-MAC on 2017. 7. 3..
  */
-public class Lazer implements Mobile{
+public class LazerMobileImpl implements Mobile {
+    private String name;
+
+    public LazerMobileImpl(String name) {
+        this.name = name;
+    }
+
     @Override
     public void call() {
         System.out.println("따라..");
@@ -22,6 +28,6 @@ public class Lazer implements Mobile{
 
     @Override
     public String getName() {
-        return "Lazer";
+        return name;
     }
 }

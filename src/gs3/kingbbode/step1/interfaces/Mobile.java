@@ -5,4 +5,5 @@ package gs3.kingbbode.step1.interfaces;
  */
 public interface Mobile extends Electronic{
     void call();
+    void sendMessage();
 }

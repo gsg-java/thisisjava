@@ -4,9 +4,7 @@ import gs3.kingbbode.step1.*;
 import gs3.kingbbode.step1.interfaces.Camera;
 import gs3.kingbbode.step1.interfaces.MP3;
 import gs3.kingbbode.step1.interfaces.Mobile;
-import gs3.kingbbode.step2.MP3Impl;
-import gs3.kingbbode.step2.MobileImpl;
-import gs3.kingbbode.step2.CameraImpl;
+import gs3.kingbbode.step2.*;
 
 /**
  * Created by YG-MAC on 2017. 7. 3..
@@ -33,10 +31,10 @@ public class Main {
     }
     
     private static void step2(){
-        Kingbbode kingbbode = new Kingbbode(new MP3[]{new MP3Impl("IRiver-001"), new MP3Impl("IPot 1세대")}, new Camera[]{new CameraImpl("Canon 400D"), new CameraImpl("Nikon D40")}, new Mobile[]{new MobileImpl("Lazer"), new MobileImpl("Anicall")});
+        Kingbbode kingbbode = new Kingbbode(new MP3[]{new IRiverMP3Impl("IRiver-001"), new IPotMP3Impl("IPot 1세대")}, new Camera[]{new CameraImpl("Canon 400D"), new CameraImpl("Nikon D40")}, new Mobile[]{new LazerMobileImpl("Lazer"), new AnicallMobileImpl("Anicall")});
         kingbbode.TellMeAboutYourLife();
         System.out.println("--------------------");
-        Minho minho = new Minho(new MP3[]{new MP3Impl("IRiver01"), new MP3Impl("IPot01")}, new Camera[]{new CameraImpl("Canon 400D"), new CameraImpl("Nikon D40")}, new Mobile[]{new MobileImpl("Lazer"), new MobileImpl("Anicall")});
+        Minho minho = new Minho(new MP3[]{new IRiverMP3Impl("IRiver-001"), new IPotMP3Impl("IPot 1세대")}, new Camera[]{new CameraImpl("Canon 400D"), new CameraImpl("Nikon D40")}, new Mobile[]{new LazerMobileImpl("Lazer"), new AnicallMobileImpl("Anicall")});
         minho.TellMeAboutYourLife();
     }
 }
