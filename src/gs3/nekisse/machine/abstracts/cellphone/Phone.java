@@ -13,9 +13,12 @@ public class Phone extends Machine {
 
     public Phone(String brand, String type, String name) {
         super(brand, type, name);
+        this.brand =brand;
+        this.type =type;
+        this.name = name;
     }
 
     public void call(){
-        System.out.println(this.name + this.type + "을 사용하여 전화를 겁니다.");
+        System.out.println(name + type + "을 사용하여 전화를 겁니다.");
     }
 }

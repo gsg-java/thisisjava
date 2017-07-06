@@ -5,6 +5,7 @@ import gs3.nekisse.machine.abstracts.audio.Mp3;
 import gs3.nekisse.machine.abstracts.audio.AudioPlay;
 import gs3.nekisse.machine.abstracts.cellphone.Call;
 import gs3.nekisse.machine.abstracts.cellphone.DmbPhone;
+import gs3.nekisse.machine.abstracts.cellphone.Phone;
 import gs3.nekisse.machine.abstracts.cellphone.SmartPhone;
 import gs3.nekisse.machine.abstracts.tv.SmartTv;
 import gs3.nekisse.machine.abstracts.tv.WatchTv;
@@ -14,6 +15,7 @@ import gs3.nekisse.machine.abstracts.tv.WatchTv;
  */
 public class Run {
     public static void main(String[] args) {
+        Phone phone =new Phone("폰","핸드폰","폰클래스");
         AudioPlay play =new AudioPlay();
         Call call = new Call();
         WatchTv watchTv =new WatchTv();

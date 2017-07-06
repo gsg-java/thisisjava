@@ -1,9 +1,11 @@
 package gs3.nekisse.machine.abstracts;
 
+import gs3.nekisse.machine.abstracts.machine_interface.Speaker;
+
 /**
  * Created by Nekisse_lee on 2017. 7. 5..
  */
-public abstract class Machine {
+public abstract class Machine  {
     String brand;
     String type;
     String name;
@@ -28,4 +30,10 @@ public abstract class Machine {
         System.out.println(name + "의 전원을 끕니다.");
     }
 
+    public void volumeup(Speaker speaker){
+        speaker.volumeUp();
+    }
+    public void volumeDown(Speaker speaker){
+        speaker.volumeDown();
+    }
 }
