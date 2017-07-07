@@ -16,4 +16,14 @@ public abstract class AbstractCamera implements Camera {
     public String getName() {
         return name;
     }
+
+    @Override
+    public void snapshot() {
+        System.out.println("예열..");
+        settingSutterSpeed();
+        focus();
+        System.out.println("찰칵");
+    }
+    protected abstract void settingSutterSpeed();
+    protected abstract void focus();
 }

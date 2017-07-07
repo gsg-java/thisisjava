@@ -11,8 +11,15 @@ public class NewNikonD40 extends AbstractCamera {
     }
 
     @Override
-    public void snapshot() {
-        System.out.println("츠을커");
-        System.out.println("어억");
+    protected void settingSutterSpeed() {
+        System.out.println("셔터 속도 조절...");
+        System.out.println("..");
+        System.out.println("...");
+    }
+
+    @Override
+    protected void focus() {
+        System.out.println("초점 조절...");
+        System.out.println("..");
     }
 }

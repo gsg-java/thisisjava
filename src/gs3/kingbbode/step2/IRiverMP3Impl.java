@@ -8,10 +8,11 @@ import gs3.kingbbode.step1.interfaces.MP3;
 public class IRiverMP3Impl implements MP3 {
     private String name;
     private int nowRecord = 0;
-    private String[] playList = new String[]{"암쏘소리벗알러뷰다거짓말, 이야 몰랐어","하루하루 멀어져가네에에에","너의 눈,코,입"};
+    private String[] playList;
 
-    public IRiverMP3Impl(String name) {
+    public IRiverMP3Impl(String name, String[] playList) {
         this.name = name;
+        this.playList = playList;
     }
 
     @Override

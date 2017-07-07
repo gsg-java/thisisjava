@@ -15,4 +15,17 @@ public class NewCanon400D extends AbstractCamera{
         System.out.println("찰카");
         System.out.println("아악");
     }
+
+    @Override
+    protected void settingSutterSpeed() {
+        System.out.println("셔터 속도 조절...");
+        System.out.println("..");
+    }
+
+    @Override
+    protected void focus() {
+        System.out.println("초점 조절...");
+        System.out.println("..");
+        System.out.println("...");
+    }
 }

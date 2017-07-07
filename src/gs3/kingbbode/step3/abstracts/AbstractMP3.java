@@ -7,11 +7,20 @@ import gs3.kingbbode.step1.interfaces.MP3;
  */
 public abstract class AbstractMP3 implements MP3 {
     private String name;
-    protected int nowRecord = 0;
+    private int nowRecord = 0;
+    private String[] playList;
 
-    public AbstractMP3(String name) {
+    public AbstractMP3(String name, String[] playList) {
         this.name = name;
+        this.playList = playList;
     }
+
+    @Override
+    public void play() {
+        play(playList[nowRecord]);
+    }
+    
+    protected abstract void play(String music);
 
     @Override
     public void next() {

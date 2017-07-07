@@ -14,8 +14,13 @@ public class NikonCameraImpl implements Camera {
 
     @Override
     public void snapshot() {
-        System.out.println("츠을커");
-        System.out.println("어억");
+        System.out.println("예열..");
+        System.out.println("셔터 속도 조절...");
+        System.out.println("..");
+        System.out.println("...");
+        System.out.println("초점 조절...");
+        System.out.println("..");
+        System.out.println("찰칵");
     }
 
     @Override
