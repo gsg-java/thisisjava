@@ -1,15 +1,12 @@
 package gs3.kingbbode.step3.abstracts;
 
-import gs3.kingbbode.step1.interfaces.Camera;
-
 /**
  * Created by YG-MAC on 2017. 7. 3..
  */
-public abstract class AbstractCamera implements Camera {
-    private String name;
+public abstract class AbstractDSLR extends CameraImpl {
 
-    public AbstractCamera(String name) {
-        this.name = name;
+    public AbstractDSLR(String name) {
+        super(name);
     }
 
     @Override

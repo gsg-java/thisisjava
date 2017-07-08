@@ -1,11 +1,11 @@
 package gs3.kingbbode.step3;
 
-import gs3.kingbbode.step3.abstracts.AbstractCamera;
+import gs3.kingbbode.step3.abstracts.AbstractDSLR;
 
 /**
  * Created by YG-MAC on 2017. 7. 3..
  */
-public class NewCanon400D extends AbstractCamera{
+public class NewCanon400D extends AbstractDSLR {
     public NewCanon400D() {
         super("Canon 400D");
     }

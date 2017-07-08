@@ -6,7 +6,12 @@ import gs3.kingbbode.step1.*;
 import gs3.kingbbode.step1.interfaces.Camera;
 import gs3.kingbbode.step1.interfaces.MP3;
 import gs3.kingbbode.step1.interfaces.Mobile;
-import gs3.kingbbode.step2.*;
+import gs3.kingbbode.step2.camera.CanonCameraImpl;
+import gs3.kingbbode.step2.camera.NikonCameraImpl;
+import gs3.kingbbode.step2.mobile.impl.AnicallMobileImpl;
+import gs3.kingbbode.step2.mobile.impl.CyonMobileImpl;
+import gs3.kingbbode.step2.mp3.IPotMP3Impl;
+import gs3.kingbbode.step2.mp3.IRiverMP3Impl;
 import gs3.kingbbode.step3.*;
 import gs3.kingbbode.step4.Chocolate;
 import gs3.kingbbode.step4.Lazer;
@@ -54,17 +59,17 @@ public class JUnitTest {
 
     @Test
     public void step2(){
-        IRiverMP3Impl iRiver01 = new IRiverMP3Impl("IRiver-001", playList);
+        IRiverMP3Impl iRiver01 = new IRiverMP3Impl(playList);
         Assert.assertThat(iRiver01 instanceof MP3, is(true));
-        IPotMP3Impl iPot01 = new IPotMP3Impl("IPot 1세대", playList);
+        IPotMP3Impl iPot01 = new IPotMP3Impl(playList);
         Assert.assertThat(iPot01 instanceof MP3, is(true));
-        NikonCameraImpl nikonD40 =  new NikonCameraImpl("Nikon D40");
+        NikonCameraImpl nikonD40 =  new NikonCameraImpl();
         Assert.assertThat(nikonD40 instanceof Camera, is(true));
-        CanonCameraImpl canon400D = new CanonCameraImpl("Canon 400D");
+        CanonCameraImpl canon400D = new CanonCameraImpl();
         Assert.assertThat(canon400D instanceof Camera, is(true));
-        CyonMobileImpl cyon = new CyonMobileImpl("Cyon");
+        CyonMobileImpl cyon = new CyonMobileImpl();
         Assert.assertThat(cyon instanceof Mobile, is(true));
-        AnicallMobileImpl anicall = new AnicallMobileImpl("Anicall");
+        AnicallMobileImpl anicall = new AnicallMobileImpl();
         Assert.assertThat(anicall instanceof Mobile, is(true));
         kingbbode = new Kingbbode(new MP3[]{ iRiver01, iPot01}, new Camera[]{ nikonD40, canon400D}, new Mobile[]{cyon, anicall});
         minho = new Minho(new MP3[]{ iRiver01, iPot01}, new Camera[]{ nikonD40, canon400D}, new Mobile[]{cyon, anicall});

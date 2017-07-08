@@ -1,11 +1,11 @@
 package gs3.kingbbode.step3;
 
-import gs3.kingbbode.step3.abstracts.AbstractCamera;
+import gs3.kingbbode.step3.abstracts.AbstractDSLR;
 
 /**
  * Created by YG-MAC on 2017. 7. 3..
  */
-public class NewNikonD40 extends AbstractCamera {
+public class NewNikonD40 extends AbstractDSLR {
     public NewNikonD40() {
         super("Nikon D40");
     }

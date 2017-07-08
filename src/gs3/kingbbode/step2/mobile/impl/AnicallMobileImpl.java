@@ -1,13 +1,13 @@
-package gs3.kingbbode.step3;
+package gs3.kingbbode.step2.mobile.impl;
 
-import gs3.kingbbode.step1.interfaces.Mobile;
-import gs3.kingbbode.step3.abstracts.AbstractMobile;
+import gs3.kingbbode.step2.mobile.MobileImpl;
 
 /**
  * Created by YG-MAC on 2017. 7. 3..
  */
-public class NewAnicall extends AbstractMobile{
-    public NewAnicall() {
+public class AnicallMobileImpl extends MobileImpl {
+
+    public AnicallMobileImpl() {
         super("Anicall");
     }
 
