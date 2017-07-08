@@ -1,14 +1,14 @@
 package gs3.nekisse.machine.abstracts;
 
-import gs3.nekisse.machine.abstracts.machine_interface.Speaker;
+import gs3.nekisse.machine.abstracts.machine_interface.impl.Speaker;
 
 /**
  * Created by Nekisse_lee on 2017. 7. 5..
  */
 public abstract class Machine  {
-    String brand;
-    String type;
-    String name;
+    public String brand;
+    public  String type;
+    public String name;
 
     public Machine(String brand, String type, String name){
         this.brand = brand;

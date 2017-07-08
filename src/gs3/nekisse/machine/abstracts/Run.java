@@ -1,14 +1,14 @@
 package gs3.nekisse.machine.abstracts;
 
-import gs3.nekisse.machine.abstracts.audio.CdPlayer;
-import gs3.nekisse.machine.abstracts.audio.Mp3;
+import gs3.nekisse.machine.abstracts.audio.impl.CdPlayer;
+import gs3.nekisse.machine.abstracts.audio.impl.Mp3;
 import gs3.nekisse.machine.abstracts.audio.AudioPlay;
 import gs3.nekisse.machine.abstracts.cellphone.Call;
-import gs3.nekisse.machine.abstracts.cellphone.DmbPhone;
-import gs3.nekisse.machine.abstracts.cellphone.Phone;
-import gs3.nekisse.machine.abstracts.cellphone.SmartPhone;
-import gs3.nekisse.machine.abstracts.tv.SmartTv;
-import gs3.nekisse.machine.abstracts.tv.WatchTv;
+import gs3.nekisse.machine.abstracts.cellphone.impl.DmbPhone;
+import gs3.nekisse.machine.abstracts.cellphone.impl.Phone;
+import gs3.nekisse.machine.abstracts.cellphone.impl.SmartPhone;
+import gs3.nekisse.machine.abstracts.tv.impl.SmartTv;
+import gs3.nekisse.machine.abstracts.tv.Watch;
 
 /**
  * Created by Nekisse_lee on 2017. 7. 5..
@@ -18,7 +18,7 @@ public class Run {
         Phone phone =new Phone("폰","핸드폰","폰클래스");
         AudioPlay play =new AudioPlay();
         Call call = new Call();
-        WatchTv watchTv =new WatchTv();
+        Watch watchTv =new Watch();
 
         play.mp3(new Mp3("아이리버","mp3","IR-100"));
         play.cdPlayer(new CdPlayer("파나소닉","cdP","CDP-100"));

@@ -1,4 +1,4 @@
-package gs3.nekisse.machine.abstracts.audio;
+package gs3.nekisse.machine.abstracts.audio.impl;
 
 /**
  * Created by Nekisse_lee on 2017. 7. 5..
@@ -6,9 +6,7 @@ package gs3.nekisse.machine.abstracts.audio;
 public class Mp3 extends Audio {
     public Mp3(String brand, String type, String name) {
         super(brand, type, name);
-        this.brand =brand;
-        this.type =type;
-        this.name = name;
+
     }
 
     public void mp3Fm(){

@@ -1,4 +1,4 @@
-package gs3.nekisse.machine.abstracts.cellphone;
+package gs3.nekisse.machine.abstracts.cellphone.impl;
 
 /**
  * Created by Nekisse_lee on 2017. 7. 5..
@@ -9,9 +9,7 @@ public class DmbPhone extends Phone {
 
     public DmbPhone(String brand, String type, String name) {
         super(brand, type, name);
-        this.brand =brand;
-        this.type =type;
-        this.name = name;
+
     }
 
     public void watchTv(){                  //질문   super.brand 와 this.brand ,   brand  출력값이 같은데  다른점은.??

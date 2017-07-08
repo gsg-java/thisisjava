@@ -1,4 +1,4 @@
-package gs3.nekisse.machine.abstracts.audio;
+package gs3.nekisse.machine.abstracts.audio.impl;
 
 import gs3.nekisse.machine.abstracts.Machine;
 
@@ -6,9 +6,7 @@ import gs3.nekisse.machine.abstracts.Machine;
  * Created by Nekisse_lee on 2017. 7. 5..
  */
 public class Audio extends Machine {
-    String brand;
-    String type;
-    String name;
+
 
     public Audio(String brand, String type, String name) {
         super(brand, type, name);

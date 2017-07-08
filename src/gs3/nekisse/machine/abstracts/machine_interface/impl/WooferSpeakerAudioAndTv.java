@@ -1,4 +1,4 @@
-package gs3.nekisse.machine.abstracts.machine_interface;
+package gs3.nekisse.machine.abstracts.machine_interface.impl;
 
 /**
  * Created by Nekisse_lee on 2017. 7. 6..
