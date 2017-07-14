@@ -36,8 +36,7 @@ public class KingbbodeInteger implements KingbbodeNumber{
     @Override
     public KingbbodeNumber minus(KingbbodeNumber kingbbodeNumber) {
         if(kingbbodeNumber instanceof KingbbodeDouble){
-            this.number = 0-this.number;
-            return kingbbodeNumber.minus(this);
+            return new KingbbodeDouble(this.number - kingbbodeNumber.doubleValue());
         }
         this.number -= kingbbodeNumber.intValue();
         return this;

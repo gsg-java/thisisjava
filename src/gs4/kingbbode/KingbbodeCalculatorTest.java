@@ -64,4 +64,20 @@ public class KingbbodeCalculatorTest {
     public void 형변환_보장_테스트() throws Exception {
         Assert.assertEquals(new KingbbodeCalculator(i1).plus(i2,i3).divided(d2).calculate(), "3.0");
     }
+
+    @Test
+    public void 대략적인_실수령액_테스트() throws Exception {
+        //국민연금 9% //건강보험 2.07% //고용보험 0.62% //원천징수 0.02% (오차범위 +- 100,000)
+        System.out.println(
+            new KingbbodeCalculator(new KingbbodeInteger(20000000))
+                .multiply(
+                        new KingbbodeInteger(100).minus(new KingbbodeDouble(9)).divided(new KingbbodeInteger(100)),
+                        new KingbbodeInteger(100).minus(new KingbbodeDouble(2.07)).divided(new KingbbodeInteger(100)),
+                        new KingbbodeInteger(100).minus(new KingbbodeDouble(0.62)).divided(new KingbbodeInteger(100)),
+                        new KingbbodeInteger(100).minus(new KingbbodeDouble(0.02)).divided(new KingbbodeInteger(100))
+                )
+                .divided(new KingbbodeInteger(12))
+                .calculate()
+        );
+    }
 }
