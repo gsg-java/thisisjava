@@ -13,11 +13,45 @@ public class MinhoDouble implements MinhoNumber{
 
     @Override
     public MinhoNumber plus(MinhoNumber number) {
-        return new MinhoDouble(value + ((MinhoDouble) number).value);
+        this.value += ((MinhoDouble) number).value;
+        return this;
     }
 
     @Override
     public MinhoNumber minus(MinhoNumber number) {
-        return new MinhoDouble(value - ((MinhoDouble) number).value);
+        this.value -= ((MinhoDouble) number).value;
+        return this;
+    }
+
+    @Override
+    public MinhoNumber multiply(MinhoNumber number) {
+        this.value *= ((MinhoDouble) number).value;
+        return this;
+    }
+
+    @Override
+    public MinhoNumber divide(MinhoNumber number) {
+        this.value /= ((MinhoDouble) number).value;
+        return this;
+    }
+
+    @Override
+    public int getIntValue() {
+        return (int)value;
+    }
+
+    @Override
+    public double getDoubleValue() {
+        return value;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        return value == ((MinhoNumber)obj).getDoubleValue();
+    }
+
+    @Override
+    public String toString() {
+        return ""+value;
     }
 }

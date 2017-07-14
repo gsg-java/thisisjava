@@ -8,15 +8,18 @@ import java.util.Scanner;
  */
 public class MinhoCalculator {
     public static void main(String[] argc) {
-//        Scanner scanner = new Scanner(System.in);
-//        System.out.print("식 입력 : ");
-//        String source = scanner.nextLine();
-//        System.out.print(source);
+        MinhoOperator plus = new MinhoOperator("+");
+        MinhoOperator minus = new MinhoOperator("-");
+        MinhoOperator multiply = new MinhoOperator("*");
+        MinhoOperator divide = new MinhoOperator("/");
 
-        MinhoInteger two = new MinhoInteger(2);
-        MinhoInteger one = new MinhoInteger(4);
+        MinhoInteger one = new MinhoInteger(1);
+        MinhoDouble twoPointFive = new MinhoDouble(2.5);
+        MinhoInteger three = new MinhoInteger(3);
+        MinhoDouble fourPointFive = new MinhoDouble(4.5);
+        MinhoDouble zeroPointOne = new MinhoDouble(0.1);
 
-        System.out.print(one.plus(two));
+        System.out.println(divide.calculate( multiply.calculate(fourPointFive, minus.calculate(plus.calculate(twoPointFive,one), three)), zeroPointOne));
     }
 }
 
