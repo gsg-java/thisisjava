@@ -1,8 +1,8 @@
-package gs2.minho.Brand;
+package gs2.minho.brand;
 
-import gs2.minho.Fuel.Diesel;
-import gs2.minho.Fuel.Fuel;
-import gs2.minho.Fuel.Gasoline;
+import gs2.minho.fuel.Diesel;
+import gs2.minho.fuel.Fuel;
+import gs2.minho.fuel.Gasoline;
 
 /**
  * IDE : IntelliJ IDEA

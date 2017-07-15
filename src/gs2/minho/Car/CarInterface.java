@@ -1,4 +1,4 @@
-package gs2.minho.Car;
+package gs2.minho.car;
 
 /**
  * IDE : IntelliJ IDEA

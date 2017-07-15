@@ -1,7 +1,7 @@
-package gs2.minho.Car;
+package gs2.minho.car;
 
-import gs2.minho.Brand.Brand;
-import gs2.minho.Engine.Engine;
+import gs2.minho.brand.Brand;
+import gs2.minho.engine.Engine;
 
 /**
  * IDE : IntelliJ IDEA
