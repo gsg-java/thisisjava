@@ -1,4 +1,4 @@
-package str333;
+package gs4.str333;
 
 public class StrDouble implements StrNumber {
 	private double number;

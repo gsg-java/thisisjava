@@ -1,4 +1,4 @@
-package str333;
+package gs4.str333;
 
 public class StrCal {
 	public static void main(String[] args) {
