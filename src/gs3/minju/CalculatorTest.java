@@ -1,4 +1,4 @@
-package nnew;
+package gs3.minju;
 
 public class CalculatorTest {
 
