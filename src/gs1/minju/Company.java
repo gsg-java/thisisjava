@@ -1,4 +1,4 @@
-package org.java.tuto.eclipse;
+package gs1.minju;
 import java.util.Scanner;
 public class Company{
 	Scanner sc=new Scanner(System.in);
@@ -14,13 +14,13 @@ public class Company{
 
 		do{
 			info[i]=new Company();
-			System.out.print("ÀÌ¸§: ");
+			System.out.print("ï¿½Ì¸ï¿½: ");
 			info[i].name=sc.next();
-			System.out.print("Á÷±Þ: ");
+			System.out.print("ï¿½ï¿½ï¿½ï¿½: ");
 			info[i].position=sc.next();
-			System.out.println(info[i].name+"("+info[i].position+")"+"ÀÌ/°¡ µî·ÏµÇ¾ú½À´Ï´Ù.");		
+			System.out.println(info[i].name+"("+info[i].position+")"+"ï¿½ï¿½/ï¿½ï¿½ ï¿½ï¿½ÏµÇ¾ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.");		
 			i++;
-			System.out.println("Ãß°¡µî·ÏÇÏ·Á¸é Y¸¦ ´©¸£¼¼¿ä.");
+			System.out.println("ï¿½ß°ï¿½ï¿½ï¿½ï¿½ï¿½Ï·ï¿½ï¿½ï¿½ Yï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.");
 			Ins1 = sc.next();
 		}
 		while(Ins1.equals("Y")|| Ins1.equals("y"));		
@@ -38,7 +38,7 @@ public class Company{
 	
 	void search(){
 		String input;
-		System.out.print("Á¶È¸ÇÒ »ç¿ø: ");
+		System.out.print("ï¿½ï¿½È¸ï¿½ï¿½ ï¿½ï¿½ï¿½: ");
 		input=sc.next();
 		for(int j=0;j<i;j++){
 			if(input.equals(info[i].name)){
@@ -50,13 +50,13 @@ public class Company{
 	}
 	
 	void change(){
-		System.out.print("º¯°æ ÈÄ Á÷±Þ: ");
+		System.out.print("ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½: ");
 		String new_position=sc.next();
 		String temp=null;
 		temp=info[i].position;
 		info[i].position=new_position;
 		new_position=temp;
-		System.out.println(info[i].name+"("+info[i].position+")"+"(À¸)·Î º¯°æµÇ¾ú½À´Ï´Ù.");
+		System.out.println(info[i].name+"("+info[i].position+")"+"(ï¿½ï¿½)ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ç¾ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.");
 	}
 	
 	void delete(){

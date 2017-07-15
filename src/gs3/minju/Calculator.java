@@ -1,5 +1,5 @@
-package nnew;
-import nnew.Interface.Calculatable;
+package gs3.minju;
+import gs3.minju.Interface.Calculatable;
 
 class Calculator implements Calculatable {
     int num1, num2, num3;
