@@ -1,7 +1,7 @@
-package com.sskim.interfaces.impl;
+package gs4.sskim.interfaces.impl;
 
-import com.sskim.integer.SSKIMInteger;
-import com.sskim.interfaces.SSKIMCalculator;
+import gs4.sskim.integer.SSKIMInteger;
+import gs4.sskim.interfaces.SSKIMCalculator;
 
 public class SSKIMCalculatorImpl implements SSKIMCalculator{
 

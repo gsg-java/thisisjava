@@ -1,4 +1,4 @@
-package com.sskim.integer;
+package gs4.sskim.integer;
 
 public class SSKIMInteger{
 	

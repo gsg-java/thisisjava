@@ -1,6 +1,6 @@
-package com.sskim.interfaces;
+package gs4.sskim.interfaces;
 
-import com.sskim.integer.SSKIMInteger;
+import gs4.sskim.integer.SSKIMInteger;
 
 public interface SSKIMCalculator {
 	public void sskim_plus(SSKIMInteger a, SSKIMInteger b);
