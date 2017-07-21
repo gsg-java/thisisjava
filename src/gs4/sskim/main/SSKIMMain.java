@@ -1,13 +1,14 @@
 package gs4.sskim.main;
 
 import gs4.sskim.integer.SSKIMInteger;
+import gs4.sskim.interfaces.SSKIMCalculator;
 import gs4.sskim.interfaces.impl.SSKIMCalculatorImpl;
 
 public class SSKIMMain{
 	public static void main(String[] args) {
 		
 		//계산기 기능
-		SSKIMCalculatorImpl calImpl = new SSKIMCalculatorImpl();
+		SSKIMCalculator calImpl = new SSKIMCalculatorImpl();
 		//TODO 여기서 Integer 타입 
 		
 		SSKIMInteger val1 = new SSKIMInteger(30);

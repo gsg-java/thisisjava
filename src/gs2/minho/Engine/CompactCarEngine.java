@@ -1,7 +1,7 @@
-package gs2.minho.Engine;
+package gs2.minho.engine;
 
-import gs2.minho.Fuel.Diesel;
-import gs2.minho.Fuel.Fuel;
+import gs2.minho.fuel.Diesel;
+import gs2.minho.fuel.Fuel;
 
 /**
  * IDE : IntelliJ IDEA

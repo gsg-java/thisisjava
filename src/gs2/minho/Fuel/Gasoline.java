@@ -1,4 +1,4 @@
-package gs2.minho.Fuel;
+package gs2.minho.fuel;
 
 /**
  * IDE : IntelliJ IDEA

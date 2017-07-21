@@ -8,7 +8,6 @@ import java.util.Scanner;
  */
 public class MinhoCalculator {
     public static void main(String[] argc) {
-
         MinhoOperator plus = new MinhoOperator("+");
         MinhoOperator minus = new MinhoOperator("-");
         MinhoOperator multiply = new MinhoOperator("*");
@@ -19,11 +18,8 @@ public class MinhoCalculator {
         MinhoInteger three = new MinhoInteger(3);
         MinhoDouble fourPointFive = new MinhoDouble(4.5);
         MinhoDouble zeroPointOne = new MinhoDouble(0.1);
-        //System.out.println(plus.calculate(one, three));
-        //System.out.println(plus.calculate(fourPointFive, three));
-        System.out.println(MinhoOperator2.PLUS.calculate(one, fourPointFive));
-        //System.out.println(plus.calculate(one, twoPointFive));
-        //System.out.println(divide.calculate( multiply.calculate(fourPointFive, minus.calculate(plus.calculate(twoPointFive,one), three)), zeroPointOne));
+
+        System.out.println(divide.calculate( multiply.calculate(fourPointFive, minus.calculate(plus.calculate(twoPointFive,one), three)), zeroPointOne));
     }
 }
 

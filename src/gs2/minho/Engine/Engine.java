@@ -1,6 +1,6 @@
-package gs2.minho.Engine;
+package gs2.minho.engine;
 
-import gs2.minho.Fuel.Fuel;
+import gs2.minho.fuel.Fuel;
 import gs2.minho.Influenceable;
 
 /**

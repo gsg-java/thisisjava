@@ -3,7 +3,7 @@ package gs4.sskim.interfaces.impl;
 import gs4.sskim.integer.SSKIMInteger;
 import gs4.sskim.interfaces.SSKIMCalculator;
 
-public class SSKIMCalculatorImpl implements SSKIMCalculator{
+public class SSKIMCalculatorImpl implements SSKIMCalculator {
 
 	@Override
 	public void sskim_plus(SSKIMInteger a, SSKIMInteger b) {
@@ -28,6 +28,5 @@ public class SSKIMCalculatorImpl implements SSKIMCalculator{
 		System.out.print("나눗셈 ");
 		System.out.println(a.value / b.value);
 	}
-	
-	
+
 }

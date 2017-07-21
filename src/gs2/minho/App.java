@@ -1,15 +1,15 @@
 package gs2.minho;
 
 
-import gs2.minho.Brand.Chevrolet;
-import gs2.minho.Brand.Hyundai;
-import gs2.minho.Brand.KIA;
-import gs2.minho.Brand.Samsung;
-import gs2.minho.Car.Car;
-import gs2.minho.Engine.CompactCarEngine;
-import gs2.minho.Engine.SUVEngine;
-import gs2.minho.Engine.SedanEngine;
-import gs2.minho.Engine.SportsCarEngine;
+import gs2.minho.brand.Chevrolet;
+import gs2.minho.brand.Hyundai;
+import gs2.minho.brand.KIA;
+import gs2.minho.brand.Samsung;
+import gs2.minho.car.Car;
+import gs2.minho.engine.CompactCarEngine;
+import gs2.minho.engine.SUVEngine;
+import gs2.minho.engine.SedanEngine;
+import gs2.minho.engine.SportsCarEngine;
 
 /**
  * IDE : IntelliJ IDEA
