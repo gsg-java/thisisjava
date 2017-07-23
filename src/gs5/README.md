@@ -3,10 +3,10 @@
 **자바 연습**
 
 - java.lang.List 인터페이스 구현체 만들기
-
+- String 형을 받을 수 있는 리스트를 만들자!
 
 ```java
-class [MyName]List<E> implements List<E> {
+class [MyName]List implements List<String> {
     /**
     * 구현 하세용
     */
