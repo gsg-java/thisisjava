@@ -9,11 +9,12 @@ import java.util.*;
  */
 public class MinhoList<E> implements List<E>{
     E[] array;
-    private static int MAXLENGTH = 10000;
-    private static int CURRENTLENGTH = 0;
+    private int MAXLENGTH = 10000;
+    private int CURRENTLENGTH = 0;
     public MinhoList() {
         array = (E[])(new Object[MAXLENGTH]);
     }
+
     @Override
     public int size() {
         return CURRENTLENGTH;
@@ -126,13 +127,13 @@ public class MinhoList<E> implements List<E>{
 
     @Override
     public E get(int index) {
-        if (CURRENTLENGTH < 0 || CURRENTLENGTH <= index) throw new ArrayIndexOutOfBoundsException();
+        if (outBoundary(index)) throw new ArrayIndexOutOfBoundsException();
         return array[index];
     }
 
     @Override
     public E set(int index, E element) {
-        if (CURRENTLENGTH < 0 || CURRENTLENGTH <= index) throw new ArrayIndexOutOfBoundsException();
+        if (outBoundary(index)) throw new ArrayIndexOutOfBoundsException();
         return (array[index] = element);
     }
 
@@ -157,7 +158,7 @@ public class MinhoList<E> implements List<E>{
      */
     @Override
     public void add(int index, E element) {
-        if (index < 0 || CURRENTLENGTH <= index)
+        if (outBoundary(index))
             throw new IndexOutOfBoundsException();
         for (int i = index ; i < CURRENTLENGTH + 1 ; ++i)
             array[i + 1] = array[i];
@@ -180,7 +181,7 @@ public class MinhoList<E> implements List<E>{
     @Override
     public E remove(int index) {
         // 인덱싱 예외처리
-        if (CURRENTLENGTH < 0 || CURRENTLENGTH <= index) throw new ArrayIndexOutOfBoundsException();
+        if (outBoundary(index)) throw new ArrayIndexOutOfBoundsException();
         E elementRemoved = array[index];
         for (int i = index ; i < CURRENTLENGTH - 1 ; ++i) {
             array[i] = array[i+1];
@@ -264,5 +265,9 @@ public class MinhoList<E> implements List<E>{
     @Override
     public ListIterator<E> listIterator(int index) {
         return null;
+    }
+
+    private Boolean outBoundary(int index) {
+        return (CURRENTLENGTH < 0 || CURRENTLENGTH <= index);
     }
 }
