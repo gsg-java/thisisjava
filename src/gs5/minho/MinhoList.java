@@ -64,10 +64,11 @@ public class MinhoList<E> implements List<E>{
     @Override
     public boolean remove(Object o) {
         E object = (E)o;
+
         for(int i = 0 ; i < CURRENTLENGTH ; ++i) {
-            if (array[i] == object) {
-                CURRENTLENGTH--;
-                return true;
+            if (array[i].equals(object)) {
+                remove(i);
+                return false;
             }
         }
         return false;
@@ -125,13 +126,13 @@ public class MinhoList<E> implements List<E>{
 
     @Override
     public E get(int index) {
-        if (CURRENTLENGTH < 0 || CURRENTLENGTH >= index) throw new ArrayIndexOutOfBoundsException();
+        if (CURRENTLENGTH < 0 || CURRENTLENGTH <= index) throw new ArrayIndexOutOfBoundsException();
         return array[index];
     }
 
     @Override
     public E set(int index, E element) {
-        if (CURRENTLENGTH < 0 || CURRENTLENGTH >= index) throw new ArrayIndexOutOfBoundsException();
+        if (CURRENTLENGTH < 0 || CURRENTLENGTH <= index) throw new ArrayIndexOutOfBoundsException();
         return (array[index] = element);
     }
 
@@ -156,7 +157,7 @@ public class MinhoList<E> implements List<E>{
      */
     @Override
     public void add(int index, E element) {
-        if (index < 0 || CURRENTLENGTH > index)
+        if (index < 0 || CURRENTLENGTH <= index)
             throw new IndexOutOfBoundsException();
         for (int i = index ; i < CURRENTLENGTH + 1 ; ++i)
             array[i + 1] = array[i];
@@ -179,7 +180,7 @@ public class MinhoList<E> implements List<E>{
     @Override
     public E remove(int index) {
         // 인덱싱 예외처리
-        if (CURRENTLENGTH < 0 || CURRENTLENGTH >= index) throw new ArrayIndexOutOfBoundsException();
+        if (CURRENTLENGTH < 0 || CURRENTLENGTH <= index) throw new ArrayIndexOutOfBoundsException();
         E elementRemoved = array[index];
         for (int i = index ; i < CURRENTLENGTH - 1 ; ++i) {
             array[i] = array[i+1];
