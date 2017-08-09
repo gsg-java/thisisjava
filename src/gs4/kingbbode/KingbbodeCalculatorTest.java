@@ -66,6 +66,11 @@ public class KingbbodeCalculatorTest {
     }
 
     @Test
+    public void TEST() throws Exception {
+        new KingbbodeInteger(0).plus(new KingbbodeDouble(3));
+    }
+
+    @Test
     public void 대략적인_실수령액_테스트() throws Exception {
         //국민연금 9% //건강보험 2.07% //고용보험 0.62% //원천징수 0.02% (오차범위 +- 100,000)
         System.out.println(

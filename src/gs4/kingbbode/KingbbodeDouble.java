@@ -7,9 +7,6 @@ import gs3.kingbbode.human.Kingbbode;
  */
 public class KingbbodeDouble implements KingbbodeNumber{
 
-    public KingbbodeDouble() {
-    }
-
     public KingbbodeDouble(double number) {
         this.number = number;
     }

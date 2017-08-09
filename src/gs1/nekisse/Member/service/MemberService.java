@@ -15,7 +15,6 @@ public class MemberService {
 
     private Scanner scanner;
     private ArrayList<String> people;
-    private Map<String, Member> database = new HashMap<>();
     //권용근, Member
 
 

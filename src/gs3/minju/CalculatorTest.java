@@ -11,7 +11,7 @@ public class CalculatorTest {
 		
 		System.out.println("-----------");
 		
-		Calculator2 c2=new Calculator2(); //interface test
+		Calculator2 c2=new Calculator2(); //interface app
 		c2.number(2,4);
 		c2.sum();
 		c2.avg();
@@ -26,7 +26,7 @@ public class CalculatorTest {
 		
         System.out.println("-----------");
         
-        s.number(1, 2, 3); //overloading test
+        s.number(1, 2, 3); //overloading app
         s.sum();       
         s.avg();         
         s.substract();

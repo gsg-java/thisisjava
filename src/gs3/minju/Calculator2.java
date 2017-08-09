@@ -1,7 +1,7 @@
 package gs3.minju;
 import gs3.minju.Interface.Calculatable;
 
-class Calculator2 implements Calculatable {  //interface test
+class Calculator2 implements Calculatable {  //interface app
     int num1, num2;
 
     @Override

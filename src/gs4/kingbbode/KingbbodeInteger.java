@@ -5,9 +5,6 @@ package gs4.kingbbode;
  */
 public class KingbbodeInteger implements KingbbodeNumber{
 
-    public KingbbodeInteger() {
-    }
-
     public KingbbodeInteger(int number) {
         this.number = number;
     }
