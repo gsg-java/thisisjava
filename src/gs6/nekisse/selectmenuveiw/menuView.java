@@ -23,7 +23,6 @@ public class menuView {
         boolean run = true;
         while (run) {
             System.out.println("1. 사용자 주문 모드 |2. 관리자용 | 3. 프로그램종료");
-            System.out.println("1 , 2 , 3 의 숫자중 하나를 입력해주세요");
             int select = scanner.nextInt();
             switch (select) {
                 case 1:

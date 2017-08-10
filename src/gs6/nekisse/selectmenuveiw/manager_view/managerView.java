@@ -1,5 +1,8 @@
 package gs6.nekisse.selectmenuveiw.manager_view;
 
+import gs6.nekisse.menu.cafeMenu;
+import gs6.nekisse.menu.menuCategory;
+
 import java.util.*;
 
 /**
@@ -7,7 +10,7 @@ import java.util.*;
  */
 public class managerView {
     Scanner scanner = new Scanner(System.in);
-    Map<String, Integer> menu = new HashMap<>();
+    Map<menuCategory, cafeMenu> menu = new HashMap<>();
 
 
     public void managerMenuMode() {
@@ -41,7 +44,7 @@ public class managerView {
                     menuDel();
                     break;
                 case 3:
-                    menuAll();
+                   // menuAll();
                     break;
             }
         }
@@ -58,19 +61,29 @@ public class managerView {
         map.put(messageInput("aaa"), messageInput("bbb"));*/
 
     private void menuAdd() {
+        String categoryName = null;
         String menuName = null;
         Integer menuPrice = null;
-        System.out.print("추가 메뉴 이름: ");
-        menuName = scanner.nextLine();
-        System.out.print("추가한"+ menuName + "의 가격: " );
-        menuPrice = scanner.nextInt();
-        menu.put(menuName,menuPrice);
+        while(true) {
+            System.out.print("추가 메뉴 이름: ");
+            categoryName = scanner.next();
+           /* menuCategory[] categories = menuCategory.values();
+            for (menuCategory category : categories) {
+                System.out.println(category);
+            }
+
+            menuName = scanner.nextLine();
+            System.out.println();
+            System.out.print("추가한" + menuName + "의 가격: ");
+            menuPrice = scanner.nextInt();*/
+            menu.put(menuCategory.valueOf(categoryName), new cafeMenu(menuName,menuPrice));
+        }
     }
 
     private void menuDel() {
     }
 
-    private void menuAll() {
+    /*private void menuAll() {
         Set<String> menuKeys = menu.keySet();
         Iterator<String> menyKeyiteraor =menuKeys.iterator();
         while (menyKeyiteraor.hasNext()){
@@ -78,6 +91,6 @@ public class managerView {
             Integer price = menu.get(key);
             System.out.println(key + price);
         }
-    }
+    }*/
 
 }
