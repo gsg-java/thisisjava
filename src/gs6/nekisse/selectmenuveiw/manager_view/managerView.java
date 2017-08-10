@@ -9,6 +9,7 @@ import java.util.*;
  * Created by Nekisse_lee on 2017. 8. 9..
  */
 public class managerView {
+    cafeMenu cafeMenu;
     Scanner scanner = new Scanner(System.in);
     Map<menuCategory, cafeMenu> menu = new HashMap<>();
 
@@ -60,6 +61,15 @@ public class managerView {
 ...
         map.put(messageInput("aaa"), messageInput("bbb"));*/
 
+
+
+
+    /**                     < menuCategory에는  enum타입 카테고리 저장하고싶음>
+     *     menuAdd()            Map<menuCategory, cafeMenu> menu = new HashMap<>();
+     *                                                  <cafeMenu객체 저장하고싶음>
+     *
+     */
+
     private void menuAdd() {
         String categoryName = null;
         String menuName = null;
@@ -76,9 +86,10 @@ public class managerView {
             System.out.println();
             System.out.print("추가한" + menuName + "의 가격: ");
             menuPrice = scanner.nextInt();*/
-            menu.put(menuCategory.valueOf(categoryName), new cafeMenu(menuName,menuPrice));
+            menu.put(menuCategory.valueOf(categoryName), new cafeMenu(cafeMenu.setMenuName(),cafeMenu.setPrice()));
         }
     }
+
 
     private void menuDel() {
     }
