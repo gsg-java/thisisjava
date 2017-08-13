@@ -15,23 +15,6 @@ public class cafeMenu {
         this.price = price;
     }
 
-    public String getMenuName() {
-        return menuName;
-    }
 
-    public String setMenuName() {
-        System.out.print("추가할 메뉴 이름> ");
-         this.menuName = scanner.nextLine();
-         return menuName;
-    }
 
-    public int getPrice() {
-        return price;
-    }
-
-    public int setPrice() {
-        System.out.print("추가한 메뉴의 가격> ");
-        this.price= scanner.nextInt();
-        return price;
-    }
 }

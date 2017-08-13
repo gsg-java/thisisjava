@@ -25,7 +25,9 @@ public enum Position {
 
 
 
-    private static String information = Arrays.stream(Position.values()).map(position -> position.num + ". " + position.name).collect(Collectors.joining(" "));
+    private static String information = Arrays.stream(Position.values())
+            .map(position -> position.num + ". " + position.name)
+            .collect(Collectors.joining(" "));
     public static void print() {
         System.out.println(information);
     }

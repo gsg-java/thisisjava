@@ -25,7 +25,7 @@ public class Pos {
     }
 
     public void admin() {
-        //menu.add
+        //Menu.add
         //category//add
     }
 

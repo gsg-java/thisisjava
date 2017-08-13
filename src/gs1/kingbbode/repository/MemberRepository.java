@@ -10,7 +10,8 @@ import java.util.Map;
 /**
  * Created by YG-MAC on 2017. 6. 6..
  */
-public class MemberRepository implements Repository<String, Member>{
+public class
+MemberRepository implements Repository<String, Member>{
     private Map<String, Member> store;
 
     public MemberRepository() {

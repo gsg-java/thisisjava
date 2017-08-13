@@ -65,19 +65,21 @@ public class managerView {
 
 
     /**                     < menuCategory에는  enum타입 카테고리 저장하고싶음>
-     *     menuAdd()            Map<menuCategory, cafeMenu> menu = new HashMap<>();
+     *     menuAdd()            Map<menuCategory, cafeMenu> Menu = new HashMap<>();
      *                                                  <cafeMenu객체 저장하고싶음>
      *
      */
 
     private void menuAdd() {
         String categoryName = null;
+        Integer categoryNum = null;
         String menuName = null;
         Integer menuPrice = null;
+        /*
         while(true) {
             System.out.print("추가 메뉴 이름: ");
             categoryName = scanner.next();
-           /* menuCategory[] categories = menuCategory.values();
+            menuCategory[] categories = menuCategory.values();
             for (menuCategory category : categories) {
                 System.out.println(category);
             }
@@ -85,9 +87,10 @@ public class managerView {
             menuName = scanner.nextLine();
             System.out.println();
             System.out.print("추가한" + menuName + "의 가격: ");
-            menuPrice = scanner.nextInt();*/
-            menu.put(menuCategory.valueOf(categoryName), new cafeMenu(cafeMenu.setMenuName(),cafeMenu.setPrice()));
+            menuPrice = scanner.nextInt();
+            Menu.put(menuCategory.valueOf(categoryName), new cafeMenu(cafeMenu.setMenuName(),cafeMenu.setPrice()));
         }
+*/
     }
 
 
@@ -95,11 +98,11 @@ public class managerView {
     }
 
     /*private void menuAll() {
-        Set<String> menuKeys = menu.keySet();
+        Set<String> menuKeys = Menu.keySet();
         Iterator<String> menyKeyiteraor =menuKeys.iterator();
         while (menyKeyiteraor.hasNext()){
             String key = menyKeyiteraor.next();
-            Integer price = menu.get(key);
+            Integer price = Menu.get(key);
             System.out.println(key + price);
         }
     }*/
