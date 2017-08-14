@@ -1,10 +1,4 @@
-package gs6.domain;
-
-import com.sun.tools.corba.se.idl.constExpr.Or;
-import org.junit.Before;
-
-import java.util.ArrayList;
-import java.util.List;
+package gs6.example.domain;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
