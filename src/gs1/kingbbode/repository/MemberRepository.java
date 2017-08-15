@@ -41,6 +41,7 @@ MemberRepository implements Repository<String, Member>{
     }
     @Override
     public void delete(Member member){
+
         store.remove(member.getName());
     }
 

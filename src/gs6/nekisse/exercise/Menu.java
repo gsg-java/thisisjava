@@ -3,6 +3,7 @@ package gs6.nekisse.exercise;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Scanner;
 
 /**
  * Created by Nekisse_lee on 2017. 8. 12..
@@ -22,11 +23,28 @@ public class Menu {
         menu.put("조각케익",new MenuItem("조각케익", 4500,Categorys.SIDEMENU));
     }
 
+
+    public void save(MenuItem menuItem) {
+        menu.put(menuItem.getName(), menuItem);
+    }
+
+
     public Collection<MenuItem> findAll() {
         return menu.values();
     }
 
-    private void printMenu(){
+
+    public void delete(MenuItem menuItem) {
+        menu.remove(menuItem.getName());
     }
+
+
+
+   public MenuItem findByName(String name){
+        if (!menu.containsKey(name)){
+            return null;
+        }
+        return menu.get(name);
+   }
 
 }

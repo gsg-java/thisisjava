@@ -1,5 +1,11 @@
 package gs6.nekisse.exercise;
 
+import gs1.kingbbode.common.exceptions.NotFoundCommandException;
+
+import java.util.Arrays;
+import java.util.Objects;
+import java.util.stream.Collectors;
+
 /**
  * Created by Nekisse_lee on 2017. 8. 9..
  */
@@ -26,8 +32,23 @@ public enum Categorys {
         return categoryName;
     }
 
+    private static String information = Arrays.stream(Categorys.values())
+            .map(categorys -> categorys.num + ". " + categorys.categoryName)
+            .collect(Collectors.joining(" "));
+
+    public static void print(){
+        System.out.println(information);
+    }
+
+    public static Categorys findByNum(Integer num){
+        return Arrays.stream(Categorys.values())
+                .filter(categorys -> Objects.equals(categorys.num, num))
+                .findAny()
+                .orElseThrow(NotFoundCommandException::new);
+    }
+
     @Override
     public String toString() {
-        return  "categoryName= " + categoryName;
+        return  "categoryName: " + categoryName;
     }
 }
