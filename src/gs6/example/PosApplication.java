@@ -1,6 +1,6 @@
-package gs6;
+package gs6.example;
 
-import gs6.domain.Pos;
+import gs6.example.domain.Pos;
 
 /**
  * Created by YG-MAC on 2017. 8. 12..

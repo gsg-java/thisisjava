@@ -1,4 +1,4 @@
-package gs6.domain;
+package gs6.example.domain;
 
 import java.util.*;
 
